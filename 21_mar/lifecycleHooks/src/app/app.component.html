@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <!--  interpolation can be used only inside same level folder as this app component file is under app folder and any other component inside it can access {{title}} -->
+
+  <h3>Welcome to {{title}} </h3>
+  <!-- using interpolation to bind a property into html tag  -->
+
+  
+  <input type="text" [(ngModel)]="name"  #input>    <!--ngModel-  it binds the form to the given form value. , two way binding   , #input is local reference to the html input element-->  
+  <!--here we are passing the $event which will pass the current event( value ) -->
+  <!-- <button type="button" disabled="{{isDiabled}}">Click me</button>      here value of isDiabled =true which is boolean bt here it is treated as string there for the disabled property is still present -->
+  <button type="button" [disabled]="isDiabled" (click)="onSubmit(input)">Click me</button>
+  <!--using property binding we are using the value of disabled as boolean value only also using event binding as we are using (click)  'onclick" event here-->
+  <p>{{name}}</p>
+
+  <img src="{{ src }}" alt="{{ title }}" id="lifecycleImage" width="25%">
+
+  &nbsp;
+
+  <app-demo [text]="inputvalue" *ngIf="destroy">    <!--demo component is child component of app component ,text property in demo component is binded with inputvalue property of appcomponent this is called custom binding-->
+    <h4>Projected Content: {{inputvalue}}</h4>  
+  </app-demo>    
+
+
+  <!--when we run our program angular will find for selector of DemoComponent class in app.component.html and instantiate its constructor-->
+<br><br>
+<button (click)="destroyComponent()" >Destroy</button>    <!--when we click on this destroy button the component (demo) will be destroyed and removed from the dom-->
+
+</body>
+
+</html>
