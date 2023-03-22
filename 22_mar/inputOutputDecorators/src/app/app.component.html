@@ -13,18 +13,18 @@
   <div id='text'>
     <p>To pass data or properties from parent component to child component or vice-versa we use : @Input and @Output</p>
     <img src="https://miro.medium.com/max/944/1*N4rKNsbkhayiGfjHxk2_3A.png" alt="Decorators" width="30%">
+  
+    <!-- nesting course component inside app component so header and course component are child components for the app component -->
+    <h3>Using parent - child (@input)</h3>
+    <app-course
+      [inDecorator]="inputDecorator"
+      (outDecoratorEvent)="outDecoratorEventCalled($event)"><!--here we are recieving data from child to parent (event will receive the data from child), whenever the event gets fired (from child) go to outDecorator function-->
+    </app-course>
+    <p>{{outDecorator}}</p>
+    <!--binding property of getDecorator() property(parent component)  to child i.e. inDecrator(child component) -->
+    <!--we do these changes inside the view template of parent class-->
+    <!--here we are telling to give data inputDecorator property of parent component to inDecorator property of child component-->
   </div>
-
-  <!-- nesting course component inside app component so header and course component are child components for the app component -->
-  <h3>Using parent - child (@input)</h3>
-  <app-course
-    [inDecorator]="inputDecorator"
-    (outDecoratorEvent)="outDecoratorEventCalled($event)"><!--here we are recieving data from child to parent (event will receive the data from child), whenever the event gets fired (from child) go to outDecorator function-->
-  </app-course>
-  <p>{{outDecorator}}</p>
-  <!--binding property of getDecorator() property(parent component)  to child i.e. inDecrator(child component) -->
-  <!--we do these changes inside the view template of parent class-->
-  <!--here we are telling to give data inputDecorator property of parent component to inDecorator property of child component-->
 </body>
 
 </html>
