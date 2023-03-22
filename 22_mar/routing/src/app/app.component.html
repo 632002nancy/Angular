@@ -1,0 +1,18 @@
+<div>
+    <div>
+        <ul>
+            <!--routerLink catches click on the element prevents default behaviour of sending the element and instead analyse what is passed in routing directive-->
+            <li routerLinkActive="active"><a routerLink="home">Home</a></li>    <!--routerLink is attribute directive using this will not reload the page  -->
+            <li routerLinkActive="active"><a [routerLink]="['about']">About</a></li>  <!--routerLink will look for a property with name about-->
+            <li routerLinkActive="active"><a [routerLink]="'contact'">Contact</a></li>  <!--assigning css class active-->
+        </ul>
+    </div>
+
+    <div>
+        <!-- <app-home></app-home>
+      <app-about></app-about>
+      <app-contact></app-contact> -->
+        <router-outlet></router-outlet>
+        <!--directive that tells angular where in our page we want to display the view-->
+    </div>
+</div>

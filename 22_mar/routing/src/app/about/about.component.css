@@ -1,0 +1,17 @@
+#first{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(241, 248, 248);
+    margin: -8px;
+    padding: 2rem;
+}
+li{
+    font-size: larger;
+}
+button{
+    padding: 0.7rem;
+    background-color: black;
+    color: white;
+}
