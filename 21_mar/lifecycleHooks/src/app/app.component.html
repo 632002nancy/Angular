@@ -27,6 +27,11 @@
 
   &nbsp;
 
+
+  <input type="text" [(ngModel)]="fname">     <!--at every change ngmodel will assihn value of fname with firing any event-->
+  <button *ngIf="fname">Click</button>        <!--here ngif will make the button display if the ultimate value is true. -->
+  <!-- <a href="https://google.com" *ngIf="fname">link here</a> -->
+
   <app-demo [text]="inputvalue" *ngIf="destroy">    <!--demo component is child component of app component ,text property in demo component is binded with inputvalue property of appcomponent this is called custom binding-->
     <h4>Projected Content: {{inputvalue}}</h4>  
   </app-demo>    

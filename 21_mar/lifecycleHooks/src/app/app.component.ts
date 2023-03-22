@@ -13,7 +13,8 @@ export class AppComponent {
   destroy:boolean=true;
   inputvalue: string = "";
 
-
+  fname:string='';
+  
   onSubmit(inputEle: HTMLInputElement) {   //bcz we are passing local reference to the onSubmit
     console.log("inside click event function");
     this.inputvalue = inputEle.value;   //whatever value user enter in the text box willbe assign to input when button is clicked
