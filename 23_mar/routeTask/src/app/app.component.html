@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+    <div class="center">
+     <h2>Enter your Name:</h2>
+     <input type="text">
+     &nbsp; &nbsp; &nbsp;
+
+     <h4>Select Gender</h4>
+     <mat-form-field appearance="fill">
+       <mat-label>Gender</mat-label>
+       <mat-select>
+         <mat-option *ngFor="let g of gender" [value]="g.value">
+           {{g.viewValue}}
+         </mat-option>
+       </mat-select>
+     </mat-form-field>
+     &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+     <button mat-raised-button>Submit</button>
+     
+    </div>
+
+    <div id="location">
+      <mat-form-field appearance="fill">
+        <mat-label>Select Source</mat-label>
+        <mat-select [(value)]="selected">
+          <mat-option>None</mat-option>
+          <mat-option value="Delhi">Delhi</mat-option>
+          <mat-option value="Mumbai">Mumbai</mat-option>
+          <mat-option value="Chennai">Chennai</mat-option>
+          <mat-option value="Banglore">Banglore</mat-option>
+        </mat-select>
+      </mat-form-field>
+      
+      
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+      <mat-form-field appearance="fill">
+        <mat-label>Select Destination</mat-label>
+        <mat-select [(value)]="selected">
+          <mat-option>None</mat-option>
+          <mat-option value="Delhi">Delhi</mat-option>
+          <mat-option value="Mumbai">Mumbai</mat-option>
+          <mat-option value="Chennai">Chennai</mat-option>
+          <mat-option value="Banglore">Banglore</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button mat-raised-button>Submit</button>
+    </div>
+    <br>
+    <div class="center">
+      <p>xzfjkhkhks</p>
+      <button mat-raised-button>Clear Routes</button>
+    </div>
+   
+  
+</body>
+</html>
