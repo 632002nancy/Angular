@@ -1,0 +1,67 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>My App</span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <mat-icon>share</mat-icon>
+  </button>
+</mat-toolbar>
+<div class="center">
+
+  <h1>We Welcome you to our Page</h1>
+
+  <mat-chip-listbox aria-label="Fish selection">
+    <mat-chip-option  color="accent" selected>CODING</mat-chip-option>
+    <mat-chip-option>BLOGGING</mat-chip-option>
+    <mat-chip-option>FASHION</mat-chip-option>
+    <mat-chip-option color="warn">TRAVELLING</mat-chip-option>
+  </mat-chip-listbox>
+
+  <br>
+
+  <mat-expansion-panel (opened)="panelOpenState = true"(closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Explore your Interest with us
+      </mat-panel-title>
+      <mat-panel-description>
+        Click here to {{panelOpenState ? 'Close' : 'Open'}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>We are here to help you to groom your hobbies</p>
+  </mat-expansion-panel>
+
+  
+</div>
+
+<div class="center">
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Enter Your Name</mat-label>
+      <input matInput #fullname>
+    </mat-form-field>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>About your Interest</mat-label>
+      <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+    </mat-form-field>
+
+    <h4>Select Gender</h4>
+<mat-form-field appearance="fill">
+  <mat-label>Gender</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let g of gender" [value]="g.value">
+      {{g.viewValue}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+ &nbsp; &nbsp; &nbsp; &nbsp;
+
+<button mat-stroked-button (click)="openSnackBar(fullname.value)">SUBMIT</button>
+  </form>
+</div>
