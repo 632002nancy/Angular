@@ -1,0 +1,10 @@
+#first{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(238, 248, 248);
+    margin: -8px;
+    padding: 3rem;
+   
+}

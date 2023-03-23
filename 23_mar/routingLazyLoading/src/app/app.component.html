@@ -1,0 +1,16 @@
+<div>
+  <div>
+      <ul>
+          <!-- The Router enables navigation by interpreting a browser URL as an instruction to change the view. -->
+          <!--routerLink catches click on the element prevents default behaviour of sending the element and instead analyse what is passed in routing directive-->
+          <li routerLinkActive="active"><a routerLink="/home">Home</a></li>    <!--routerLink is attribute directive using this will not reload the page  -->
+          <li routerLinkActive="active"><a routerLink="contact">Contact</a></li>  <!--inform your application to apply a specific CSS class to the active route-->
+      </ul>
+  </div>
+
+  <div>
+     
+    <!--directive that tells angular where in our page we want to display the view-->
+      <router-outlet></router-outlet>  <!--For routes to work, we need to update your template to dynamically load a component based on the URL path-->
+  </div>
+</div>

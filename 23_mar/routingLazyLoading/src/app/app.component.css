@@ -1,0 +1,15 @@
+ul{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(121, 190, 192);
+    margin: -1.4rem;
+}
+li{
+    padding: 3rem;    
+    font-size: 3rem;
+}
+a{  
+    text-decoration: none;
+    color: white;
+}
