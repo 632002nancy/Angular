@@ -1,0 +1,14 @@
+.center{
+    padding: 3rem;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+}
+h4{
+    color: rgb(154, 153, 153);
+}
+
+small{
+    color: red;
+}

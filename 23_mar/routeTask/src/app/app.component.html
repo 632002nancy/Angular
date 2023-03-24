@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form (ngSubmit)="printRoute()" #myform="ngForm">  <!--to this myform we are assigning a value of type ngForm-->
+    <h1>Enter your desired cities</h1>
+    <div class="center">
+      <h4>FROM:</h4>
+        <select id="source" class="route" name="source" ngModel required #sourceform="ngModel">  <!--tells angular that this input element is control of this form-->
+          <option value="empty"></option>
+          <ng-container *ngFor="let city of cities">   <!--using structurl directive to loop over an array of cities-->
+              <option value={{city}}>{{city}}</option>
+            </ng-container>
+          </select>
+          <div>
+            <small *ngIf="sourceform.invalid && sourceform.touched">Please select city</small>
+          </div>
+  
+          <h4>TO:</h4>
+            <select id="destination" class="route" name="destination" ngModel required #destform="ngModel">  <!--property name for ontrol of form is same as name,#destform="ngModel" assigns this destination object to destform variable -->
+              <option value="empty"></option>
+              <ng-container *ngFor="let city of cities">
+                  <option value={{city}}>{{city}}</option>
+                </ng-container>
+              </select>
+              <div>
+                <small *ngIf="destform.invalid && destform.touched">Please select city</small>
+              </div>
+                &nbsp;&nbsp;
+          <button id="destInput" type="submit" [disabled]="!myform.valid">Add route</button>
+        </div>
+      </form>
+      
+      <p id="demo"></p>
+  
+   
+  
+</body>
+</html>
