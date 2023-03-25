@@ -16,7 +16,3 @@ small{
 #demo{
     color: rgb(117, 201, 68);
 }
-
-div.special-div[disabled] {
-    opacity: 0.5;
-}

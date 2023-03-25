@@ -11,21 +11,34 @@ export class AppComponent {
 
   src:string='';
   dest:string='';
+  total_route:Array<string> = [];
 
   isDisable:boolean=true;
 
   cities:Array<string>=["Delhi", "Mumbai", "Banglore", "Kolkata"];
 
-  
+  destDisable(item:string){
+    console.log(this.form); 
+
+   
+      // console.log(item.selectedIndex);
+    // this.form.value.destination.isDisable='true';
+  }
+
+  srcDisable(item:string){
+    console.log(item);
+      // console.log(item.selectedIndex);
+    // this.form.value.destination.isDisable='true';
+  }
 
   printRoute(){
     this.isDisable=false;
     console.log(this.form);  //console object of type ngform
     // console.log(this.cities[0]);
     this.src=(this.form.value.source);
-    console.log(this.src);
+    // console.log(this.src);
     this.dest=(this.form.value.destination);
-    console.log(this.dest);
+    // console.log(this.dest);
 
     this.form.reset();  //set form control and form state to empty
   }
