@@ -101,10 +101,6 @@ export class AppComponent {
     this.total_route.push(this.obj);
     console.log(this.total_route);
 
-    for(let i=0;i<this.cities.length;i++){              //enable all the options in both lists when printing is done
-      this.destOption.nativeElement.options[i].disabled=false;
-      this.srcOption.nativeElement.options[i].disabled=false;
-    }
     this.form.reset();  //set form control and form state to empty
   }
 }

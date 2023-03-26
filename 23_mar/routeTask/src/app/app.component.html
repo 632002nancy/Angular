@@ -22,7 +22,7 @@
           </div>
   
           <h4>TO:</h4>
-            <select id="destination" class="route" name="destination" ((change))="srcDisable(destform.value)" ngModel required #destform="ngModel">  <!--property name for ontrol of form is same as name,#destform="ngModel" assigns this destination object to destform variable -->
+            <select id="destination" class="route" name="destination" (change)="srcDisable(destform.value)" ngModel required #destform="ngModel">  <!--property name for ontrol of form is same as name,#destform="ngModel" assigns this destination object to destform variable -->
               <option value="empty" disabled></option>
               <ng-container *ngFor="let city of cities">
                   <option value={{city}}>{{city}}</option>
