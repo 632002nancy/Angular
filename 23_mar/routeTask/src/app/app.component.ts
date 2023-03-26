@@ -12,6 +12,9 @@ export class AppComponent {
   src:string='';
   dest:string='';
   total_route:Array<string> = [];
+  selectedSource:number=0;
+  selectedDest:number=0;
+
 
   isDisable:boolean=true;
 
@@ -19,6 +22,16 @@ export class AppComponent {
 
   destDisable(item:string){
     console.log(this.form); 
+    this.selectedSource= this.cities.indexOf(item);
+    console.log(this.selectedSource);
+    for (let i = 0; i < this.cities.length; i++) {
+      if(i===this.selectedSource){
+        console.log(this.form)
+      }
+      
+    }
+   
+    
 
    
       // console.log(item.selectedIndex);
@@ -27,8 +40,8 @@ export class AppComponent {
 
   srcDisable(item:string){
     console.log(item);
-      // console.log(item.selectedIndex);
-    // this.form.value.destination.isDisable='true';
+    this.selectedDest= this.cities.indexOf(item);
+    console.log(this.selectedDest);
   }
 
   printRoute(){
