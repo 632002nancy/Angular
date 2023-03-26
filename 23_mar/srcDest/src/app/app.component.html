@@ -1,20 +1,22 @@
 <h1>Enter your desired cities</h1>
     <div class="center">
       <h4>FROM:</h4>
-        <select id="source" class="route" name="source" required>  <!--tells angular that this input element is control of this form-->
-          <option value="empty" disabled></option>
+        <select id="source" class="route" name="source" required (change)="destdisable(sourceSelect.value)" #sourceSelect>  <!--tells angular that this input element is control of this form-->
+          <option value="empty" disabled selected></option>
           <ng-container *ngFor="let city of cities">   <!--using structurl directive to loop over an array of cities-->
               <option value={{city}}>{{city}}</option>
             </ng-container>
           </select>
           
           <h4>TO:</h4>
-            <select id="destination" class="route" name="destination" required>  <!--property name for ontrol of form is same as name,#destform="ngModel" assigns this destination object to destform variable -->
-              <option value="empty" disabled></option>
+            <select id="destination" class="route" name="destination" (change)="sorcedisable(destSelect.value)" required #destSelect>  <!--property name for ontrol of form is same as name,#destform="ngModel" assigns this destination object to destform variable -->
+              <option value="empty" disabled selected></option>
               <ng-container *ngFor="let city of cities">
                   <option value={{city}}>{{city}}</option>
                 </ng-container>
               </select>
       
-          <button id="destInput" type="submit">Add route</button>
+          <button id="destInput" type="submit" (click)="printRoute(sourceSelect.value,destSelect.value)">Add route</button>
         </div>
+
+        <p style="text-align: center;">{{ printSource }} to {{printDest}}</p>
