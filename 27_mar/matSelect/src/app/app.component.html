@@ -1,0 +1,33 @@
+<h1>Tours and Travels</h1>
+
+
+<div style="display: flex; justify-content: center;">
+  <mat-form-field appearance="fill">
+    <mat-label>From:</mat-label>
+    <mat-select (selectionChange)="disableDest($event.value)">
+      <mat-option *ngFor="let city of cities" [value]="city">
+        {{city}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+  &nbsp;&nbsp;
+  <mat-form-field appearance="fill">
+    <mat-label>To:</mat-label>
+    <mat-select (selectionChange)="disableSrc($event.value)">
+      <mat-option *ngFor="let city of cities" [value]="city">
+        {{city}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+  &nbsp;&nbsp;
+  <button mat-raised-button>Add Route</button>
+</div>
+
+
+<p style="text-align: center;">Your Routes are:{{src}} to {{dest}}</p>
+<br><br>
+<div style="display: flex; justify-content: center;">
+  <button mat-raised-button>Clear Routes</button>
+</div>
