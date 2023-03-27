@@ -4,7 +4,7 @@
 <div style="display: flex; justify-content: center;">
   <mat-form-field appearance="fill">
     <mat-label>From:</mat-label>
-    <mat-select (selectionChange)="disableDest() " [(ngModel)]="source" name="src" ngModel>
+    <mat-select (selectionChange)="disableDest()" [(ngModel)]="source" name="src">
       <mat-option *ngFor="let city of cities" [value]="city" >
         {{city}}
       </mat-option>
@@ -14,7 +14,7 @@
   &nbsp;&nbsp;
   <mat-form-field appearance="fill">
     <mat-label>To:</mat-label>
-    <mat-select (selectionChange)="disableSrc()" [(ngModel)]="destination" name="dest" >
+    <mat-select (selectionChange)="disableSrc()" [(ngModel)]="destination" name="dest">
       <mat-option *ngFor="let city of cities" [value]="city">
         {{city}}
       </mat-option>
