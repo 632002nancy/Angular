@@ -25,7 +25,7 @@ export class AppComponent {
     console.log("select event emitted when source changed");
     console.log(this.source);
     this.selectedSrc=this.cities.indexOf(this.source);
-    console.log(this.selectedSrc)
+    console.log(this.selectedSrc);
   }
 
   disableSrc() { 
