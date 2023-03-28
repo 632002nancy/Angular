@@ -4,9 +4,9 @@
 <div style="display: flex; justify-content: center;">
   <mat-form-field appearance="fill">
     <mat-label>From:</mat-label>
-    <mat-select (selectionChange)="disableDest()" [(ngModel)]="source" name="src">
-      <mat-option *ngFor="let city of cities" [value]="city" >
-        {{city}}
+    <mat-select  placeholder="No value selected" (selectionChange)="disableDest()" [(ngModel)]="source" name="src">
+      <mat-option *ngFor="let city of sourceList" [value]="city.name" [disabled]="city.disabled">
+        {{city.name}}
       </mat-option>
     </mat-select>
   </mat-form-field>
@@ -14,20 +14,20 @@
   &nbsp;&nbsp;
   <mat-form-field appearance="fill">
     <mat-label>To:</mat-label>
-    <mat-select (selectionChange)="disableSrc()" [(ngModel)]="destination" name="dest">
-      <mat-option *ngFor="let city of cities" [value]="city">
-        {{city}}
+    <mat-select  placeholder="No value selected" (selectionChange)="disableSrc()" [(ngModel)]="destination" name="dest">
+      <mat-option *ngFor="let city of destinationList" [value]="city.name" [disabled]="city.disabled">
+        {{city.name}}
       </mat-option>
     </mat-select>
   </mat-form-field>
   
   &nbsp;&nbsp;
-  <button mat-raised-button>Add Route</button>
+  <button mat-raised-button (click)="addRoute()">Add Route</button>
 </div>
 
 
 <p style="text-align: center;">Your Routes are:{{source}} to {{destination}}</p>
 <br><br>
 <div style="display: flex; justify-content: center;">
-  <button mat-raised-button>Clear Routes</button>
+  <button mat-raised-button (click)="clearRoute()">Clear Routes</button>
 </div>
