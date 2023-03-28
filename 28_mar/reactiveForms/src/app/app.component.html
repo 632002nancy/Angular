@@ -1,0 +1,36 @@
+<div class="form">
+    <h1>Reactive Forms</h1>
+
+    <form [formGroup]="reactiveForm">  <!--connecting form controls of ts with html form-->
+      <mat-form-field class="example-full-width">
+        <mat-label>Enter Your Name</mat-label>
+        <input matInput placeholder="Name" formControlName="fullname">
+      </mat-form-field>
+    
+      <mat-form-field appearance="fill">
+        <mat-label>Select Your Country</mat-label>
+        <mat-select formControlName="country">
+          <mat-option *ngFor="let count of countries" [value]="count">
+            {{count}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    
+      <mat-radio-group aria-label="Select an option">
+        <mat-label>Select Gender:</mat-label>
+        <mat-radio-button value="Male" formControlName="gender">Male</mat-radio-button>
+        <mat-radio-button value="Female" formControlName="gender">Female</mat-radio-button>
+        <mat-radio-button value="Others" formControlName="gender">Others</mat-radio-button>
+      </mat-radio-group>
+    
+      <section class="example-section">
+        <mat-label>Hobbies (Optional)</mat-label>
+        <mat-checkbox class="example-margin" formControlName="hobbies">Travel</mat-checkbox>
+        <mat-checkbox class="example-margin" formControlName="hobbies">Music</mat-checkbox>
+        <mat-checkbox class="example-margin" formControlName="hobbies">Sports</mat-checkbox>
+        <mat-checkbox class="example-margin" formControlName="hobbies">Movie</mat-checkbox>
+      </section>
+  
+      <button mat-raised-button color="primary"(click)="onSubmit()">Submit</button>
+    </form>
+  </div>
