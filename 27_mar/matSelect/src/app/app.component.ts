@@ -94,9 +94,9 @@ export class AppComponent {
   }
 
   clearRoute() {
-    this.source=null;
+    this.source=null;  //reset drop-down 
     this.destination=null;
-    // location.reload();
+    this.totalRoutes=[]; //empty the array
   }
 
 }
