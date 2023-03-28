@@ -3,7 +3,6 @@ interface cities{
   name:string;
   disabled:boolean;
 }
-
 interface routes{
   from:string;
   to:string;
@@ -14,6 +13,7 @@ interface routes{
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'], 
 })
+
 export class AppComponent {
   title = 'matSelect';
 
