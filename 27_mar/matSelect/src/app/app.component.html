@@ -4,7 +4,7 @@
 <div style="display: flex; justify-content: center;">
   <mat-form-field appearance="fill">
     <mat-label>From:</mat-label>
-    <mat-select  placeholder="No value selected" (selectionChange)="disableDest()" [(ngModel)]="source" name="src">
+    <mat-select [(value)]="srcSelect"  placeholder="No value selected" (selectionChange)="disableDest()" [(ngModel)]="source">
       <mat-option *ngFor="let city of sourceList" [value]="city.name" [disabled]="city.disabled">
         {{city.name}}
       </mat-option>
@@ -14,7 +14,7 @@
   &nbsp;&nbsp;
   <mat-form-field appearance="fill">
     <mat-label>To:</mat-label>
-    <mat-select  placeholder="No value selected" (selectionChange)="disableSrc()" [(ngModel)]="destination" name="dest">
+    <mat-select [(value)]="destSelect"  placeholder="No value selected" (selectionChange)="disableSrc()" [(ngModel)]="destination">
       <mat-option *ngFor="let city of destinationList" [value]="city.name" [disabled]="city.disabled">
         {{city.name}}
       </mat-option>
@@ -26,7 +26,7 @@
 </div>
 
 
-<p style="text-align: center;">Your Routes are:{{source}} to {{destination}}</p>
+<p style="text-align: center;">{{srcName}} &nbsp; {{to}} &nbsp; {{destName}}</p>
 <br><br>
 <div style="display: flex; justify-content: center;">
   <button mat-raised-button (click)="clearRoute()">Clear Routes</button>

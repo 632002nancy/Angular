@@ -1,5 +1,4 @@
 import { Component,ViewChild } from '@angular/core';
-import { NgModel } from "@angular/forms";
 interface cities{
   name:string;
   disabled:boolean;
@@ -20,11 +19,15 @@ export class AppComponent {
 
   source:string='';
   destination:string='';
+  srcName:string='';
+  destName:string='';
+  to:string='';
+  srcSelect:{}='';
+  destSelect:{}='';
 
   obj:routes={from:'',to:''};
   
   sourceList: cities[] = [
-    { name: '', disabled: true},
     { name: 'Delhi', disabled: false},
     { name: 'Kolkata', disabled: false},
     { name: 'Mumbai', disabled: false},
@@ -32,7 +35,6 @@ export class AppComponent {
     { name: 'Pune', disabled: false},
   ];
   destinationList: cities[] = [
-    { name: '', disabled: true},
     { name: 'Delhi', disabled: false},
     { name: 'Kolkata', disabled: false},
     { name: 'Mumbai', disabled: false},
@@ -51,6 +53,7 @@ export class AppComponent {
       }     
     }
 
+    //disable all cities in source if they already exist for same destination
     for (let i = 0; i < this.totalRoutes.length; i++) {
       if(this.totalRoutes[i].from===this.source){
           for (let j = 0; j < this.destinationList.length; j++) {
@@ -63,7 +66,6 @@ export class AppComponent {
   }
 
   disableSrc() { 
-    console.log(this.destination);
      //disabling the current city in source drop-down
     for (let i = 0; i < this.destinationList.length; i++) {
       if(this.sourceList[i].name===this.destination){
@@ -71,6 +73,7 @@ export class AppComponent {
       }     
     }
 
+    //disable all cities in source if they already exist for same destination
     for (let i = 0; i < this.totalRoutes.length; i++) {
       if(this.totalRoutes[i].to===this.destination){
           for (let j = 0; j < this.sourceList.length; j++) {
@@ -83,16 +86,20 @@ export class AppComponent {
   }
 
   addRoute(){
-    console.log(this.totalRoutes)
     this.obj={from:this.source, to:this.destination}
     this.totalRoutes.push(this.obj);   //adding routes in the totalRoutes array
-    console.log(this.totalRoutes);
+  
+    this.srcName=this.source;  //initialiazing names to be printed when button clicked
+    this.destName=this.destination;
+    this.to='to';
+
+     this.srcSelect=this.sourceList[0];  //to make default selections when button is clicked
+     this.destSelect=this.destinationList[0];
 
     for(let i=0;i<this.sourceList.length;i++){              //enable all the options in both lists when printing is done
       this.sourceList[i].disabled=false;
       this.destinationList[i].disabled=false;
     }
-
   }
 
   clearRoute(){
