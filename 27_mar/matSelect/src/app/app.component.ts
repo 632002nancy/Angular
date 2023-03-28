@@ -45,7 +45,6 @@ export class AppComponent {
   totalRoutes:Array<routes>=[];
 
   disableDest() { 
-    console.log(this.source);
     //disabling the current city in destination drop-down
     for (let i = 0; i < this.destinationList.length; i++) {
       if(this.destinationList[i].name===this.source){
