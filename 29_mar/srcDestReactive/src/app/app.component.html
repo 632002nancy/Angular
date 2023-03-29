@@ -1,0 +1,36 @@
+<h1 style="text-align: center;">Tours and Travels</h1>
+
+<form [formGroup]="reactiveForm">
+  <div class="center">
+    <mat-form-field appearance="fill">
+      <mat-label>From:</mat-label>
+      <mat-select formControlName="from" (selectionChange)="disableDest()">
+        <mat-option *ngFor="let city of srcCities" [value]="city.name" [disabled]="city.disabled">
+          {{city.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    &nbsp;&nbsp;
+    <mat-form-field appearance="fill">
+      <mat-label>To:</mat-label>
+      <mat-select formControlName="to" (selectionChange)="disablesrc()">
+        <mat-option *ngFor="let city of destCities" [value]="city.name" [disabled]="city.disabled">
+          {{city.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    
+    &nbsp;&nbsp;
+    <button mat-raised-button (click)="addRoute()">Add Route</button>
+  </div>
+  
+  <ng-container *ngFor="let route of totalRoutes">
+    <p style="text-align: center;">{{route.from}} to {{route.to}}</p>
+  </ng-container>
+  
+  <div class="center">
+    <button mat-raised-button (click)="clearRoute()">Clear Route</button>
+  </div>
+</form>
+

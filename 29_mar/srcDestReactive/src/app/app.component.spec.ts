@@ -16,16 +16,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'reactiveForms'`, () => {
+  it(`should have as title 'srcDestReactive'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('reactiveForms');
+    expect(app.title).toEqual('srcDestReactive');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('reactiveForms app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('srcDestReactive app is running!');
   });
 });

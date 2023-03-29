@@ -1,0 +1,10 @@
+body.mat-typography {
+    background: antiquewhite;
+}
+
+.center{
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+}
