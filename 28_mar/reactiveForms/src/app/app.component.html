@@ -47,14 +47,14 @@
       </mat-radio-group>
     
       &nbsp;&nbsp;
-      <section class="example-section" >
-        <mat-label>Hobbies (Optional)</mat-label>
-        <mat-checkbox class="example-margin" formControlName="hobbies" value="Travel">Travel</mat-checkbox>
-        <mat-checkbox class="example-margin" formControlName="hobbies" value="Music">Music</mat-checkbox>
-        <mat-checkbox class="example-margin" formControlName="hobbies" value="Sports">Sports</mat-checkbox>
-        <mat-checkbox class="example-margin" formControlName="hobbies" value="Movie">Movie</mat-checkbox>
-      </section>
-  
+      <mat-form-field appearance="fill">
+        <mat-label>Hobbies (optional):</mat-label>
+        <mat-select multiple formControlName="hobbies" >
+          <mat-option *ngFor="let h of hobby" [value]="h">{{h}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      &nbsp;&nbsp;
       <button mat-raised-button color="primary"(click)="onSubmit()">Submit</button>
     </form>
   </div>
