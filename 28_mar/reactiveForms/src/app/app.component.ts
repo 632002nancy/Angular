@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
     phone: new FormControl(null,[Validators.required,Validators.minLength(10), Validators.maxLength(10)]),
     country: new FormControl("USA",Validators.required),//Use the constructor of FormControl to set its initial value
     gender: new FormControl("Female",Validators.required),
-    hobbies: new FormControl(["Travel"],Validators.required),  //multiple selection take array as argument
+    hobbies: new FormControl(["Travel"],Validators.required),  //multiple selection take array as argument,default value should be an array
     });
   }
 
