@@ -5,18 +5,27 @@
       <mat-form-field class="example-full-width">
         <mat-label>Enter Your Name</mat-label>
         <input matInput placeholder="Name" formControlName="fullname">
+        <div>        <!--get method will return the formControl for fullname-->
+          <small style="color:red" *ngIf="!(reactiveForm.get('fullname').valid)&&reactiveForm.get('fullname').touched ">Please enter your name...</small>
+        </div>
       </mat-form-field>
 
       &nbsp;&nbsp;
       <mat-form-field class="example-full-width">
         <mat-label>Enter Your Email</mat-label>
         <input matInput placeholder="Email" formControlName="email">
+        <div>
+          <small style="color:red" *ngIf="!(reactiveForm.get('email').valid)&&reactiveForm.get('email').touched ">Please enter your Email...</small>
+        </div>
       </mat-form-field>
 
       &nbsp;&nbsp;
       <mat-form-field class="example-full-width">
         <mat-label>Enter Your Phone Number</mat-label>
         <input matInput placeholder="phoneNo" formControlName="phone">
+        <div>
+          <small style="color:red" *ngIf="!(reactiveForm.get('phone').valid)&&reactiveForm.get('phone').touched ">Please enter your Phone Number...</small>
+        </div>
       </mat-form-field>
     
       &nbsp;&nbsp;
