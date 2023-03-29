@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormControlName, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormControlName, FormGroup} from '@angular/forms';
 
 interface cities {
   name: string,
@@ -26,7 +26,6 @@ export class AppComponent implements OnInit {
     { name: "Pune", disabled: false }
   ];
 
-
   destCities: cities[] = [
     { name: "Delhi", disabled: false },
     { name: "Mumbai", disabled: false },
@@ -37,13 +36,13 @@ export class AppComponent implements OnInit {
 
   totalRoutes: Array<route> = [];
 
-  reactiveForm!: FormGroup; //declaring variable for our reactiveForm
+  reactiveForm: FormGroup; //creating property reactiveForm of type FormGroup, declaring variable for our reactiveForm
 
-  ngOnInit() {
-    this.reactiveForm = new FormGroup({
-      from: new FormControl(null),
-      to: new FormControl(null)
-    });
+  ngOnInit() {   //when component is created and its property are updated we are initantiating the formGroup(reactiveForm)
+    this.reactiveForm = new FormGroup({  //formGroup is a constructor,here our form is ceated
+      from: new FormControl(null),  //settting up our formControls
+      to: new FormControl(null)  //to is the property with value of type FormControl
+    });   //using FormGroup we have created form and using FormControl we have created form controls
   }
 
   disableDest() {
@@ -91,9 +90,7 @@ export class AppComponent implements OnInit {
   addRoute() {
     let obj: route = { from: "", to: "" }
     obj={from:this.reactiveForm.get("from")?.value,to:this.reactiveForm.get("to")?.value}
-    console.log(obj);
-    this.totalRoutes.push(obj);
-    console.log(this.totalRoutes);  //pushing the from and to in array of object
+    this.totalRoutes.push(obj);  //pushing the from and to in array of object
 
     for (let i = 0; i < this.srcCities.length; i++) {              //enable all the options in both lists when printing is done
       this.srcCities[i].disabled = false;

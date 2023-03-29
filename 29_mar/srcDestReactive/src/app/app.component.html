@@ -1,10 +1,10 @@
 <h1 style="text-align: center;">Tours and Travels</h1>
 
-<form [formGroup]="reactiveForm">
+<form [formGroup]="reactiveForm" (ngSubmit)="addRoute()">   <!--binding/connecting this form in html to the form in ts-->
   <div class="center">
     <mat-form-field appearance="fill">
       <mat-label>From:</mat-label>
-      <mat-select formControlName="from" (selectionChange)="disableDest()">
+      <mat-select formControlName="from" (selectionChange)="disableDest()">   <!--binding the form controls of html and ts-->
         <mat-option *ngFor="let city of srcCities" [value]="city.name" [disabled]="city.disabled">
           {{city.name}}
         </mat-option>
@@ -14,7 +14,7 @@
     &nbsp;&nbsp;
     <mat-form-field appearance="fill">
       <mat-label>To:</mat-label>
-      <mat-select formControlName="to" (selectionChange)="disablesrc()">
+      <mat-select formControlName="to" (selectionChange)="disablesrc()">   <!--binding this select element to 'to' property of form-->
         <mat-option *ngFor="let city of destCities" [value]="city.name" [disabled]="city.disabled">
           {{city.name}}
         </mat-option>
@@ -22,15 +22,14 @@
     </mat-form-field>
     
     &nbsp;&nbsp;
-    <button mat-raised-button (click)="addRoute()">Add Route</button>
+    <button mat-raised-button >Add Route</button>
   </div>
+</form>
   
   <ng-container *ngFor="let route of totalRoutes">
-    <p style="text-align: center;">{{route.from}} to {{route.to}}</p>
+    <p style="text-align: center;">Trip from:&nbsp; {{route.from}} to:&nbsp;  {{route.to}} is booked!!!</p>
   </ng-container>
   
   <div class="center">
     <button mat-raised-button (click)="clearRoute()">Clear Route</button>
   </div>
-</form>
-
