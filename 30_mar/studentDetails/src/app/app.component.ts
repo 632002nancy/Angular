@@ -24,7 +24,6 @@ export class AppComponent implements OnInit {
         new FormControl(null,Validators.required),
       ])
     });
-    // this.reactiveForm.get('subInput').disable()
   }
 
     addSubject():void{
@@ -53,8 +52,6 @@ export class AppComponent implements OnInit {
       console.log(this.reactiveForm.value.subjects);
       console.log(this.reactiveForm.get('subjects')['controls']);
       console.log(this.reactiveForm)
-
-      // this.reactiveForm.reset();
+      this.reactiveForm.reset();
     }
   }
-  

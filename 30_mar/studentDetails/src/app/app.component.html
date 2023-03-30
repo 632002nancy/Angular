@@ -9,7 +9,6 @@
       </small>
     </mat-form-field>
 
-
     <mat-form-field class="example-full-width">
       <mat-label>Enter Your Age:</mat-label>
       <input type="number" matInput placeholder="Age" formControlName="age">
@@ -55,7 +54,6 @@
         
         <button mat-raised-button (click)="deleteSubject()" [disabled]="reactiveForm.get('subjects').invalid">- delete subject</button>
    
-
     <br><br><br>
     <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="reactiveForm.invalid">Submit Details</button>
   </div>
