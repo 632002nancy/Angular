@@ -1,8 +1,8 @@
-
-h1{
+h1 {
     color: rgb(45, 45, 104);
 }
-.center{
+
+.center {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -12,12 +12,18 @@ h1{
     margin: auto;
     width: 30%;
 }
-small{
-    color:red;
+
+small {
+    color: red;
 }
-.btn{
+
+.btn {
     display: flex;
     /* flex-direction: column; */
     justify-content: center;
     align-items: center;
+}
+
+.cdk-mouse-focused {
+    display: flex;
 }

@@ -1,6 +1,6 @@
 <form [formGroup]="reactiveForm">
   <div class="center">
-    <h1><u>Student  Registration  Form</u></h1>
+    <h1><u>Student Registration Form</u></h1>
     <mat-form-field class="example-full-width">
       <mat-label>Enter Your Name:</mat-label>
       <input matInput placeholder="Name" formControlName="fullName">
@@ -38,25 +38,29 @@
     </mat-form-field>
 
     <ng-container *ngFor="let sub of reactiveForm.get('subjects')['controls'];index as i ">
-          <div formArrayName="subjects" class="btn">
-            <mat-form-field class="example-full-width">
-            <input matInput placeholder="Add Subject..." formControlName="{{i}}">
-          </mat-form-field>
-          &nbsp;&nbsp;&nbsp;
-          <button mat-raised-button (click)="deleteSubjectMssg(i)" [disabled]="reactiveForm.get('subjects').invalid">- delete subject</button>
-          <br><br>
-        </div>
-      
-          <div class="btn" *ngIf="showConfirmation">
-            <small>Are you sure you want to Delete?</small>  &nbsp;&nbsp;
-            <button mat-raised-button value="yes" (click)="deleteSubject(i)">Yes</button>  &nbsp;&nbsp;
-            <button mat-raised-button value="no" (click)="hideMssg()">No</button>
-          </div>
-      </ng-container>
+      <div formArrayName="subjects" class="btn">
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Add Subject..." formControlName="{{i}}" value="{{i}}">
+        </mat-form-field>
+        &nbsp;&nbsp;&nbsp;
+        <button mat-raised-button (click)="deleteSubjectMssg(i)" [disabled]="reactiveForm.get('subjects').invalid">-
+          delete subject</button>
+        <br><br>
+      </div>
 
-        <button mat-raised-button (click)="addSubject()" [disabled]="reactiveForm.get('subjects').invalid">+ add subject</button>
-   
+      <div class="btn" *ngIf="showConfirmation">
+        <small>Are you sure you want to Delete?</small> &nbsp;&nbsp;
+        <button mat-raised-button value="yes" (click)="deleteSubject(i)">Yes</button> &nbsp;&nbsp;
+        <button mat-raised-button value="no" (click)="hideMssg()">No</button>
+      </div>
+
+    </ng-container>
+
+    <button mat-raised-button (click)="addSubject()" [disabled]="reactiveForm.get('subjects').invalid">+ add
+      subject</button>
+
     <br><br><br>
-    <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="reactiveForm.invalid">Submit Details</button>
+    <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="reactiveForm.invalid">Submit
+      Details</button>
   </div>
 </form>
