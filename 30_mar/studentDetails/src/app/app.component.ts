@@ -14,12 +14,12 @@ export class AppComponent implements OnInit {
   reactiveForm: FormGroup;
 
   ngOnInit(){
-    this.reactiveForm=new FormGroup({
+    this.reactiveForm=new FormGroup({  //here form controls are created in key value pairs
       fullName:new FormControl(null,Validators.required),
       age:new FormControl(null,[Validators.required,Validators.min(15),Validators.max(20)]),
       email:new FormControl(null,[Validators.required,Validators.email]),
       stream:new FormControl(null,[Validators.required]),
-      subjects:new FormArray([
+      subjects:new FormArray([   //here form controls are created in the form of an array
         new FormControl(null,Validators.required),
       ])
     });
