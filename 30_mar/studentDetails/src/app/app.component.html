@@ -37,22 +37,18 @@
       </small>
     </mat-form-field>
 
-    <div formArrayName="subjects" class="center">
-      <ng-container *ngFor="let sub of reactiveForm.get('subjects')['controls'];index as i ">
+    <ng-container *ngFor="let sub of reactiveForm.get('subjects')['controls'];index as i ">
+        <div formArrayName="subjects" class="btn">
           <mat-form-field class="example-full-width">
           <input matInput placeholder="Add Subject..." formControlName="{{i}}">
         </mat-form-field>
+        &nbsp;&nbsp;&nbsp;
+        <button mat-raised-button (click)="deleteSubject(i)" [disabled]="reactiveForm.get('subjects').invalid">- delete subject</button>
+        <br><br>
+      </div>
         </ng-container>
-    </div>
 
         <button mat-raised-button (click)="addSubject()" [disabled]="reactiveForm.get('subjects').invalid">+ add subject</button>
-
-        &nbsp;&nbsp;
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="SubjectName for deletion" formControlName="subInput">
-        </mat-form-field>
-        
-        <button mat-raised-button (click)="deleteSubject()" [disabled]="reactiveForm.get('subjects').invalid">- delete subject</button>
    
     <br><br><br>
     <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="reactiveForm.invalid">Submit Details</button>
