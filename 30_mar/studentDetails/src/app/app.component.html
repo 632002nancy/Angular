@@ -1,4 +1,4 @@
-<form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="reactiveForm">
   <div class="center">
     <mat-form-field class="example-full-width">
       <mat-label>Enter Your Name:</mat-label>
@@ -24,7 +24,7 @@
       </mat-select>
     </mat-form-field>
 
-    <div formArrayName="subjects">
+    <div formArrayName="subjects" class="center">
       <ng-container *ngFor="let sub of reactiveForm.get('subjects')['controls'];index as i ">
           <mat-form-field class="example-full-width">
           <input matInput placeholder="Add Subject..." formControlName="{{i}}">
@@ -34,6 +34,6 @@
     <button mat-raised-button (click)="addSubject()">+ add subject</button>
     
     <br><br><br>
-    <button mat-raised-button color="primary">Submit Details</button>
+    <button mat-raised-button color="primary" (click)="onSubmit()">Submit Details</button>
   </div>
 </form>
