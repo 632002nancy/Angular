@@ -12,7 +12,7 @@
 
     <mat-form-field class="example-full-width">
       <mat-label>Enter Your Age:</mat-label>
-      <input matInput placeholder="Age" formControlName="age">
+      <input type="number" matInput placeholder="Age" formControlName="age">
       <small *ngIf="reactiveForm.get('age').touched && reactiveForm.get('age').invalid">
         Please enter your age between (15-20)!!!
       </small>
@@ -45,8 +45,17 @@
         </mat-form-field>
         </ng-container>
     </div>
-    <button mat-raised-button (click)="addSubject()" [disabled]="reactiveForm.get('subjects').invalid">+ add subject</button>
-    
+
+        <button mat-raised-button (click)="addSubject()" [disabled]="reactiveForm.get('subjects').invalid">+ add subject</button>
+
+        &nbsp;&nbsp;
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="SubjectName for deletion" formControlName="subInput">
+        </mat-form-field>
+        
+        <button mat-raised-button (click)="deleteSubject()" [disabled]="reactiveForm.get('subjects').invalid">- delete subject</button>
+   
+
     <br><br><br>
     <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="reactiveForm.invalid">Submit Details</button>
   </div>
