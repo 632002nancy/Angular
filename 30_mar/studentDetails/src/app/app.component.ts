@@ -25,17 +25,18 @@ export class AppComponent implements OnInit {
     });
   }
 
-    addSubject(){
+    addSubject():void{
       (<FormArray>this.reactiveForm.get('subjects')).push(new FormControl(null,Validators.required)) //this this.reactiveForm.get('subjects') gives value of type formControl formArray and more so we need to explicity typecast this as a type of formArray
     }  //here we are pushing new formArray inside the formArray(subjects), so we need to loop over that array in html
 
-    onSubmit(){
+    onSubmit():void{
       console.log("Details Of the student are:")
       console.log(this.reactiveForm.value.fullName);
       console.log(this.reactiveForm.value.age);
       console.log(this.reactiveForm.value.email);
       console.log(this.reactiveForm.value.stream);
       console.log(this.reactiveForm.value.subjects);
+      console.log(this.reactiveForm.get('subjects')['controls']);
     }
   }
   
