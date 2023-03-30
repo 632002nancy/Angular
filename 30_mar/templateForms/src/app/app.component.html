@@ -1,0 +1,33 @@
+
+<div class="center">
+  <form class="example-form" (ngSubmit)="onSubmit()" #myForm="ngForm">
+    <mat-form-field class="example-full-width">
+      <mat-label>Enter Your Name:</mat-label>
+      <input matInput placeholder="Name" name="fullName" ngModel required>  <!--ngModel is used here to give control of this input element to form-->
+    </mat-form-field>
+  
+  
+    <br><br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Enter your Email:</mat-label>
+        <input matInput placeholder="Email" name="email" ngModel required>
+      </mat-form-field>
+  
+      <br><br>
+      <mat-form-field appearance="fill">
+        <mat-label>Favorite food</mat-label>
+        <mat-select name="favFood" (selectionChange)="Onfood()" ngModel>
+          <mat-option *ngFor="let food of foods" [value]="food.value">
+            {{food.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>  
+  
+      <br><br>
+      <button mat-raised-button>Submit</button>
+  
+      </form>
+</div>
+
+
+    
