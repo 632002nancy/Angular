@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup, FormArray } from '@angular/forms';
-import { findIndex } from 'rxjs';
 
 @Component({
   selector: 'app-root',
