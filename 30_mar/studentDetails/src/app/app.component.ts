@@ -10,6 +10,7 @@ export class AppComponent implements OnInit {
   title = 'studentDetails';
   
   streams: string[] = ["CSE", "ME", "ECE", "EE", "CE"];
+  showConfirmation:boolean=false;
 
   reactiveForm: FormGroup;
 
@@ -29,11 +30,18 @@ export class AppComponent implements OnInit {
       (<FormArray>this.reactiveForm.get('subjects')).push(new FormControl(null,Validators.required)); //this this.reactiveForm.get('subjects') gives value of type formControl formArray and more so we need to explicity typecast this as a type of formArray
     }  //here we are pushing new formArray inside the formArray(subjects), so we need to loop over that array in html
 
+    deleteSubjectMssg(i:number){
+      this.showConfirmation=true;
+    }
+    hideMssg(){
+      this.showConfirmation=false;
+    }
     deleteSubject(delSubIndex:number):void{
       (<FormArray>this.reactiveForm.get('subjects')).removeAt(delSubIndex);
     } 
 
     onSubmit():void{
+      console.log(this.reactiveForm)
       this.reactiveForm.reset();
     }
   }
