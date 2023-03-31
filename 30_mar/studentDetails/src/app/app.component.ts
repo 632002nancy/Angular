@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
 
   streams: string[] = ["CSE", "ME", "ECE", "EE", "CE"];
   showConfirmation: boolean = false;
+  index:number=0;
 
   reactiveForm: FormGroup;
 
@@ -31,11 +32,7 @@ export class AppComponent implements OnInit {
   }  //here we are pushing new formArray inside the formArray(subjects), so we need to loop over that array in html
 
   deleteSubjectMssg(i: number) {
-    // console.log( this.reactiveForm.value.subjects.length);
-    // console.log( this.reactiveForm.get('subjects').value);
-    // for (let i = 0; i < this.reactiveForm.value.subjects.length; i++) {
-    //   if(findIndex(this.reactiveForm.value)===i)
-    // }
+    this.index=i;
     this.showConfirmation = true;
   }
   hideMssg() {

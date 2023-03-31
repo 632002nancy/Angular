@@ -48,12 +48,11 @@
         <br><br>
       </div>
 
-      <div class="btn" *ngIf="showConfirmation">
+      <div class="btn" *ngIf="showConfirmation && i===index">
         <small>Are you sure you want to Delete?</small> &nbsp;&nbsp;
         <button mat-raised-button value="yes" (click)="deleteSubject(i)">Yes</button> &nbsp;&nbsp;
         <button mat-raised-button value="no" (click)="hideMssg()">No</button>
       </div>
-
     </ng-container>
 
     <button mat-raised-button (click)="addSubject()" [disabled]="reactiveForm.get('subjects').invalid">+ add
