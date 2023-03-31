@@ -40,7 +40,7 @@
     <ng-container *ngFor="let sub of reactiveForm.get('subjects')['controls'];index as i ">
       <div formArrayName="subjects" class="btn">
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="Add Subject..." formControlName="{{i}}" value="{{i}}">
+          <input matInput placeholder="Add Subject..." formControlName="{{i}}">
         </mat-form-field>
         &nbsp;&nbsp;&nbsp;
         <button mat-raised-button (click)="deleteSubjectMssg(i)" [disabled]="reactiveForm.get('subjects').invalid">-
