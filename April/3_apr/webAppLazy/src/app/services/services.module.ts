@@ -9,6 +9,9 @@ import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 
 
+//featured modules or shared modules
+// import { GoalsModule } from '../goals/goals.module';
+// import { AboutUsModule } from '../about-us/about-us.module';
 @NgModule({
   declarations: [
     ServicesComponent
@@ -17,7 +20,9 @@ import {MatButtonModule} from '@angular/material/button';
     CommonModule,
     ServicesRoutingModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    // GoalsModule,
+    // AboutUsModule
   ],
   exports:[ServicesComponent]
 })

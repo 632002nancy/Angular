@@ -11,6 +11,11 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatTabsModule} from '@angular/material/tabs';
 
+
+import { ServicesModule } from '../services/services.module';
+import { GoalsModule } from '../goals/goals.module';
+import { AboutUsModule } from '../about-us/about-us.module';
+
 @NgModule({
   declarations: [
     HomeComponent
@@ -23,7 +28,9 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatSelectModule,
     MatSidenavModule,
     MatTabsModule,
-    
+    ServicesModule,
+    GoalsModule,
+    AboutUsModule
   ],
   exports:[HomeComponent]
 })
