@@ -10,9 +10,6 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 
-//featured module
-// import { AboutUsModule } from '../about-us/about-us.module';
-
 @NgModule({
   declarations: [
     GoalsComponent
@@ -24,7 +21,6 @@ import {MatInputModule} from '@angular/material/input';
     MatFormFieldModule,
     ReactiveFormsModule,
     MatInputModule,
-    // AboutUsModule
   ],
   exports:[GoalsComponent]
 })
