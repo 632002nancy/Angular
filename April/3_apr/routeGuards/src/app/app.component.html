@@ -1,0 +1,12 @@
+<div>
+  <ul>
+    <li routerLinkActive="active"><a routerLink="/home">Home</a></li>
+    <li routerLinkActive="active"><a routerLink="/services">Services</a></li>
+    <li routerLinkActive="active"><a routerLink="/book">Book</a></li>
+  </ul>
+</div>
+
+<div>
+  <!--directive that tells angular where in our page we want to display the view-->
+  <router-outlet></router-outlet>  <!--For routes to work, we need to update your template to dynamically load a component based on the URL path-->
+</div>
