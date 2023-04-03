@@ -1,0 +1,20 @@
+#menu{
+    margin: 1.4rem;
+    margin-left: -1.8rem;
+    margin-right: -1.8rem;
+    margin-bottom: 0;
+    padding: 0rem;
+    border: 1px solid rgb(184, 181, 181);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(202, 161, 143);
+}
+img{
+    margin: 0;
+    width: 80rem;
+    height: 50rem;
+}
+#image{
+    margin: 0px;
+}
