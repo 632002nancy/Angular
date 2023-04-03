@@ -8,6 +8,7 @@ import { ServicesComponent } from './services.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 
+
 @NgModule({
   declarations: [
     ServicesComponent
@@ -17,6 +18,7 @@ import {MatButtonModule} from '@angular/material/button';
     ServicesRoutingModule,
     MatCardModule,
     MatButtonModule
-  ]
+  ],
+  exports:[ServicesComponent]
 })
 export class ServicesModule { }

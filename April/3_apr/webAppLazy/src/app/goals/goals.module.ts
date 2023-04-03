@@ -22,6 +22,7 @@ import {MatInputModule} from '@angular/material/input';
     MatFormFieldModule,
     ReactiveFormsModule,
     MatInputModule
-  ]
+  ],
+  exports:[GoalsComponent]
 })
 export class GoalsModule { }

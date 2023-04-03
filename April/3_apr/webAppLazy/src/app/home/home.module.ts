@@ -22,8 +22,9 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatIconModule,
     MatSelectModule,
     MatSidenavModule,
-    MatTabsModule
+    MatTabsModule,
     
-  ]
+  ],
+  exports:[HomeComponent]
 })
 export class HomeModule { }

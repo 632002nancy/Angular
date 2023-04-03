@@ -15,6 +15,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
     CommonModule,
     AboutUsRoutingModule,
     MatExpansionModule
-  ]
+  ],
+  exports:[AboutUsComponent]
 })
 export class AboutUsModule { }

@@ -1,4 +1,9 @@
 .mat-mdc-form-field + .mat-mdc-form-field {
     margin-left: 8px;
   }
+    h1{
+    margin: 2rem;
+    font-size: 2.6rem;
+    text-decoration: underline;
+  }
   
