@@ -4,6 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BookGuardService } from './Service/bookGuard.service';
+import { AuthService } from './Service/authorized.service';
+import { CanDeactivateGuardService } from './Service/canDeactivateGuard.service';
 
 @NgModule({
   declarations: [
@@ -14,7 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [BookGuardService,AuthService,CanDeactivateGuardService],    //registring the services
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

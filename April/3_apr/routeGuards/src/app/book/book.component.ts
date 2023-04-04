@@ -1,22 +1,27 @@
 import { Component } from '@angular/core';
-import {FormBuilder, Validators, FormGroup, FormControl} from '@angular/forms';
+import { IDeactivateComponent } from '../Service/canDeactivateGuard.service';
 
 @Component({
   selector: 'app-book',
   templateUrl: './book.component.html',
   styleUrls: ['./book.component.css']
 })
-export class BookComponent {
-  firstFormGroup = this._formBuilder.group({
-    firstCtrl: ['', Validators.required],
-  });
-  secondFormGroup = this._formBuilder.group({
-    secondCtrl: ['', Validators.required],
-  });
-  thirdFormGroup = this._formBuilder.group({
-    thirdCtrl: ['', Validators.required],
-  });
-  isLinear = false;
+export class BookComponent implements IDeactivateComponent {
+  name:string="";
+  age:string="";
+  city:string="";
 
-  constructor(private _formBuilder: FormBuilder) {}
+  canExit(){
+    if(this.name || this.age || this.city){
+      return confirm('You have unsaved changes, do you really want to discard changes?'); //if user click of it will return true if cancel it will return false
+    }
+    else{
+      return true;
+    }
+  }
+  c(){
+    console.log(this.name)
+    console.log(this.age)
+    console.log(this.city)
+  }
 }

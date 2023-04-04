@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './Service/authorized.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'routeGuards';
+  constructor(private authServive:AuthService){}
+
+  login(){
+    this.authServive.login();
+  }
+  logout(){
+    this.authServive.logout();
+  }
 }
