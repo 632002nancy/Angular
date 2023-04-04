@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IDeactivateComponent } from '../Service/canDeactivateGuard.service';
+import { IDeactivateComponent } from '../Service/canDEactivateGuard.service';
 
 @Component({
   selector: 'app-book',

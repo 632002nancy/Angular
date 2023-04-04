@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BookGuardService } from './Service/bookGuard.service';
 import { AuthService } from './Service/authorized.service';
-import { CanDeactivateGuardService } from './Service/canDeactivateGuard.service';
+import { CanDeactivateGuardService } from './Service/canDEactivateGuard.service';
 
 @NgModule({
   declarations: [

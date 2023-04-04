@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BookGuardService } from './Service/bookGuard.service';
-import { CanDeactivateGuardService } from './Service/canDeactivateGuard.service';
+import { CanDeactivateGuardService } from './Service/canDEactivateGuard.service';
 
 
 const routes: Routes = [
