@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BookGuardService } from './Service/bookGuard.service';
 import { AuthService } from './Service/authorized.service';
 import { CanDeactivateGuardService } from './Service/canDEactivateGuard.service';
+import { ServiceResolved } from './Service/serviceResolved.service';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { CanDeactivateGuardService } from './Service/canDEactivateGuard.service'
     AppRoutingModule,
     BrowserAnimationsModule
   ],
-  providers: [BookGuardService,AuthService,CanDeactivateGuardService],    //registring the services
+  providers: [BookGuardService,AuthService,CanDeactivateGuardService,ServiceResolved],    //registring the services
   bootstrap: [AppComponent]
 })
 export class AppModule {}

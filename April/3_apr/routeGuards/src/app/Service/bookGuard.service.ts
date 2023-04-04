@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
 import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, Router, RouterStateSnapshot, UrlTree } from "@angular/router";
-import { Observable } from "rxjs";
 import { AuthService } from "./authorized.service";
 
 @Injectable()
@@ -19,5 +18,15 @@ export class BookGuardService implements CanActivate, CanActivateChild{
     }
     canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
         return this.canActivate(childRoute,state);
+    }
+    src1:string='Maruti Suzuki'
+
+    getImage(){
+        const imageList = new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                resolve(this.src1)
+            },3000)
+        });
+        return imageList;
     }
 }
