@@ -1,9 +1,9 @@
 import { Injectable } from "@angular/core";
-import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, Router, RouterStateSnapshot, UrlTree } from "@angular/router";
+import { ActivatedRouteSnapshot,Router, RouterStateSnapshot, UrlTree } from "@angular/router";
 import { AuthService } from "./authorized.service";
 
 @Injectable()
-export class BookGuardService implements CanActivate, CanActivateChild{
+export class BookGuardService{
     constructor(private authSerive:AuthService, private router:Router){   //angular will inject an instance of AuthService class and assign it to authService
         
     }
@@ -29,7 +29,7 @@ export class BookGuardService implements CanActivate, CanActivateChild{
         const imageList = new Promise((resolve,reject)=>{
             setTimeout(()=>{
                 resolve(this.src1)
-            },1000)
+            },3000)
         });
         return imageList;
     }
