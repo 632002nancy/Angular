@@ -1,0 +1,16 @@
+
+ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(213, 217, 218);
+}
+li{
+    padding: 2rem;
+    list-style: none;
+  }
+a{
+    font-size: 2rem;
+    text-decoration: none;
+    color: rgb(85, 94, 95);
+}
