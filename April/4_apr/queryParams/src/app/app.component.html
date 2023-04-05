@@ -2,6 +2,7 @@
 <ul>
     <li><a routerLink="" [queryParams]="{ page:'Home Page' }">Home</a></li>
     <li><a routerLink="search" [queryParams]="{ page:'Search Page',country:'India',trending:'Angular',filter:'gender' }">Search</a></li>
+    <li><a routerLink="display" [queryParams]="{  page: 'Display Page', country: 'USA' }" queryParamsHandling="merge">Display</a></li>
     <!-- queryParamsHandling="preserve"   carries forwards the query parameter of the current route to the next navigation. Any query parameters of the next route are discarded -->
 </ul>
 
@@ -10,6 +11,6 @@
     
 <br>
 <div class="center">
-    <button type="button" (click)="gotoDisplay()" >Click here to go to Displays Module</button>
+    <!-- <button type="button" (click)="gotoDisplay()" >Click here to go to Displays Module</button> -->
 </div>
 <router-outlet></router-outlet>
