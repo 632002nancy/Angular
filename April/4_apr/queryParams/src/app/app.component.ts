@@ -25,7 +25,7 @@ export class AppComponent {
   gotoDisplay() {
     this.router.navigate(
       ['/display'],
-      { queryParams: { page: 'Display Page', country: 'USA' }, 
+      { queryParams: { page: 'Display Page', country: 'USA'}, 
       queryParamsHandling: 'merge' }  //merges the query parameters from the current route with that of the next route before navigating to the next route, also updates the query params for this and takes same of the existing
     );
   }

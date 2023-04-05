@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-display',
-  templateUrl: './display.component.html',
-  styleUrls: ['./display.component.css']
+  selector: 'app-displays',
+  templateUrl: './displays.component.html',
+  styleUrls: ['./displays.component.css']
 })
-export class DisplayComponent {
+export class DisplaysComponent {
   queryCountry='';
   queryTrending='';
   queryPage=0;

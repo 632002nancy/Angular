@@ -1,6 +1,6 @@
 <h2 style="text-align: center;">Displaying data retrived from Query parameters in Display</h2>
 
-<pre style="text-align: center;" *ngIf="queryCountry || queryTrending || queryPage">
+<pre style="text-align: center;" *ngIf="queryCountry && queryTrending && queryPage">
     Query parameters passed:
 
     Country:{{queryCountry}}

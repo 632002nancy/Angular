@@ -10,13 +10,15 @@ export class SearchComponent  {
 
   queryCountry='';
   queryTrending='';
+  queryFilter='';
   queryPage=0;
   constructor(private activatedRoute:ActivatedRoute){
     // using queryParams property of the snapshot property
     this.queryPage=activatedRoute.snapshot.queryParams['page'];
     this.queryCountry=activatedRoute.snapshot.queryParams['country'];
     this.queryTrending=activatedRoute.snapshot.queryParams['trending'];
-    // console.log(this.queryCountry)
+    this.queryFilter=activatedRoute.snapshot.queryParams['filter'];
+    console.log(this.queryFilter)
   }
 
 // Snapshot is not observable. Hence it will not notify you if the value changes
