@@ -12,6 +12,7 @@ export class DisplaysComponent {
   queryPage=0;
   constructor(private activatedRoute:ActivatedRoute){
     activatedRoute.queryParams.subscribe(data=>{    //we read the data that is passed from subscribe call
+      console.log(data)
         this.queryCountry=data['country'];  //retrieving the data of query params
         this.queryTrending=data['trending'];
         this.queryPage=data['page'];
