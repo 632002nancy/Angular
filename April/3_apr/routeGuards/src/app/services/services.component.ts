@@ -17,9 +17,9 @@ export class ServicesComponent implements OnInit {
 
   ngOnInit(): void {
     this.imageService.getImage().then((data)=>{
-      this.src1=data
+      // this.src1=data
     })
-    this.src1=this.route.snapshot.data['services'];  //it returns static and resolved data of this route
+    this.src1=this.route.snapshot.data['services'];  //data returns static and resolved data of this route
   }
 
 }

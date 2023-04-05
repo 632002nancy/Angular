@@ -19,13 +19,17 @@ export class BookGuardService implements CanActivate, CanActivateChild{
     canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
         return this.canActivate(childRoute,state);
     }
+
+
+
+    //resolve
     src1:string='Maruti Suzuki'
 
     getImage(){
         const imageList = new Promise((resolve,reject)=>{
             setTimeout(()=>{
                 resolve(this.src1)
-            },3000)
+            },1000)
         });
         return imageList;
     }

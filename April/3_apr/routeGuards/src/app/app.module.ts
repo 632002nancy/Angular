@@ -8,6 +8,7 @@ import { BookGuardService } from './Service/bookGuard.service';
 import { AuthService } from './Service/authorized.service';
 import { CanDeactivateGuardService } from './Service/canDEactivateGuard.service';
 import { ServiceResolved } from './Service/serviceResolved.service';
+import { CanLoadGuard } from './Service/canLoadGuard.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { ServiceResolved } from './Service/serviceResolved.service';
     AppRoutingModule,
     BrowserAnimationsModule
   ],
-  providers: [BookGuardService,AuthService,CanDeactivateGuardService,ServiceResolved],    //registring the services
+  providers: [BookGuardService,AuthService,CanDeactivateGuardService,ServiceResolved,CanLoadGuard],    //registring the services
   bootstrap: [AppComponent]
 })
 export class AppModule {}
