@@ -1,1 +1,9 @@
-<p>display works!</p>
+<h2 style="text-align: center;">Displaying data retrived from Query parameters in Display</h2>
+
+<pre style="text-align: center;" *ngIf="queryCountry || queryTrending || queryPage">
+    Query parameters passed:
+
+    Country:{{queryCountry}}
+    Trending:{{queryTrending}}
+    Page:{{queryPage}}
+</pre>

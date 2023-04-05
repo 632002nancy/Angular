@@ -1,15 +1,15 @@
-<div>
+
+<ul>
+    <li><a routerLink="" [queryParams]="{ page:'Home Page' }">Home</a></li>
+    <li><a routerLink="search" [queryParams]="{ page:'Search Page',country:'India',trending:'Angular' }">Search</a></li>
+    <!-- queryParamsHandling="preserve"   carries forwards the query parameter of the current route to the next navigation. Any query parameters of the next route are discarded -->
+</ul>
+
+<h1 style="text-align: center;">Welcome to Query Selector tutorial</h1>
+<br>
     
-    <ul>
-        <li><a routerLink="" [queryParams]="{ country:'India',page:10,trending:'Reactjs' }">Home</a></li>
-        <li><a routerLink="search" [queryParams]="{ country:'USA',page:2,trending:'Angular' }">Search</a></li>
-        <li><a routerLink="display">Display</a></li>
-    </ul>
-
-    <h1 style="text-align: center;">Welcome to Query Selector tutorial</h1>
-    <br>
-
-    <button>Click here to go to Display</button>
-    <router-outlet></router-outlet>
-
+<br>
+<div class="center">
+    <button type="button" (click)="gotoDisplay()" >Click here to go to Display</button>
 </div>
+<router-outlet></router-outlet>
