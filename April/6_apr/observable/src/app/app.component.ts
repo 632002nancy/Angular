@@ -36,6 +36,7 @@ export class AppComponent implements OnInit {
 
   array1 = [1, 2, 3, 4];
   array2 = ['A', 'B', 'C', 'D'];
+  counterSub: any;
 
   //creating an observable using 'of' operator
   // myObservable=of(this.array1,this.array2,20,"Nancy");     //we can pass any number of argument inside 'of' operator , those arguments are emitted as data for the observable., accepts 'n' number of arguments
@@ -49,7 +50,7 @@ export class AppComponent implements OnInit {
   //suppose we want to tranform the data returned by myObservable (multiply data by 5) and pass that data to the observable so we use operators (map),pipe is used to chain operators to observable
   transformedObservable = this.myObservable.pipe(map((val) => {   //val is the data emitted by source observable(myObservable), map operator is going to return a new observable and that new observable will emit the transformed data from source observable
     return val * 5;
-  }),(filter((val) => {   //first map th data return the data the filter the data and return the data to transformedObservable
+  }), (filter((val) => {   //first map th data return the data the filter the data and return the data to transformedObservable
     return val >= 15;     //return a new observable with filtered value
   })));
 
@@ -60,7 +61,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     //subscribing to the observable         
     // this.myObservable.subscribe(
-    this.transformedObservable.subscribe(
+    this.counterSub = this.transformedObservable.subscribe(
       (val) =>   //val have the value which observable emitted,optional parameter which is exected everytime the next function return a value (line 13)
       {
         console.log("subscribed the data");
@@ -74,5 +75,9 @@ export class AppComponent implements OnInit {
 
       () => { console.log("completed Execution of Observable") } //optional parameter which is executed when the complete signal emitted
     );
+  }
+
+  unsub() {
+    this.counterSub.unsubscribe();
   }
 }
