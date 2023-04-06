@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
  
   ngOnInit(){
 
-    //here both the subscriber will recieve same data as Subject makes a single instance for every subscriber
+    //here both the subscriber will recieve same data(same random value) as Subject makes a single instance for every subscriber
     this.mySubject.subscribe(
       (val=>{
         console.log(val);
