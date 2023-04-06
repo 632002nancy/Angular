@@ -64,24 +64,24 @@ export class AppComponent implements OnInit {
           this.rSubject.next("Keep Learning");
 
       //subscribing async subject
-            this.aSubject.next("A");
-            this.aSubject.next("B");
+        this.aSubject.next("A");
+        this.aSubject.next("B");
                         
-            this.aSubject.subscribe(
-              (val)=>{
-                console.log(`Sub 1: ${val}`)   //it will hold last emitted value(c) wen complete signal is emitted,value after complete will be neglected.
-              });
-              this.aSubject.next("C");
-              this.aSubject.complete();
-              this.aSubject.subscribe(
-                (val)=>{
-                  console.log(`Sub 2: ${val}`)  //gives last emited value before complete to current or future subscriber
-                });
-                this.aSubject.next("D");
-                this.aSubject.subscribe(
-                  (val)=>{
-                    console.log(`Sub 3: ${val}`)  //only takes care of the last emitted value efore complete
-                  });
+        this.aSubject.subscribe(
+          (val)=>{
+            console.log(`Sub 1: ${val}`)   //it will hold last emitted value(c) wen complete signal is emitted,value after complete will be neglected.
+          });
+          this.aSubject.next("C");
+          this.aSubject.complete();
+          this.aSubject.subscribe(
+            (val)=>{
+              console.log(`Sub 2: ${val}`)  //gives last emited value before complete to current or future subscriber
+            });
+          this.aSubject.next("D");
+          this.aSubject.subscribe(
+            (val)=>{
+              console.log(`Sub 3: ${val}`)  //only takes care of the last emitted value efore complete
+            });
   }
   //Multiple observers of an observable will get seperate instance, on the other hand in subject single instance is made for every subscriber.
 }
