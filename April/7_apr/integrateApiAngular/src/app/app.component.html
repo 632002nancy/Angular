@@ -1,0 +1,113 @@
+
+<h1 style="text-align: center;">Welcome to Intergating APIs with Angular Tutorial</h1>
+
+<div class="center">
+  <button mat-stroked-button color="primary" (click)="addStudent()">Add Student</button> &nbsp;&nbsp;
+  <button mat-stroked-button color="primary" (click)="displayStudent()">Display Students</button> &nbsp;&nbsp;
+  <button mat-stroked-button color="primary" (click)="updateStudent()">Update Student</button> &nbsp;&nbsp;
+  <button mat-stroked-button color="primary" (click)="deleteStudent()">Delete Student</button> &nbsp;&nbsp;
+</div>
+
+<br><br>
+<!-- Add student (post) -->
+<div class="column" *ngIf="addstudentclicked">
+  <form class="example-form" #userForm="ngForm" (ngSubmit)="postData(userForm.value)">
+    <mat-form-field class="example-full-width">
+      <mat-label>Enter Name</mat-label>
+      <input matInput placeholder="Name" ngModel name="name">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Enter Email</mat-label>
+      <input matInput placeholder="email" ngModel name="email">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Enter Password</mat-label>
+      <input matInput placeholder="password" ngModel name="password">
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="primary">Submit Data</button>
+  </form>
+</div>
+
+<!-- Display Student (get) -->
+<div class="center" *ngIf="displaystudentclicked">
+  <ng-container *ngFor="let user of getJsonValue.users">
+    Name:{{user.name}} &nbsp;
+    Email:{{user.email}}  &nbsp;
+    Password:{{user.password}}  &nbsp;
+    Id:{{user._id}}
+    
+    <br>
+  </ng-container>
+  <!-- <table mat-table [dataSource]="dataSource" class="mat-elevation-z8"> -->
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <!-- <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+    </ng-container> -->
+  
+    <!-- Name Column -->
+    <!-- <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container> -->
+  
+    <!-- Weight Column -->
+    <!-- <ng-container matColumnDef="weight">
+      <th mat-header-cell *matHeaderCellDef> Email </th>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container> -->
+  
+    <!-- Symbol Column -->
+    <!-- <ng-container matColumnDef="symbol">
+      <th mat-header-cell *matHeaderCellDef> Password </th>
+      <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>   -->
+</div>
+<!-- Update student (update)-->
+<div class="column" *ngIf="updatestudentclicked">
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Enter Updated Name</mat-label>
+      <input matInput placeholder="Name">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Enter Updated Email</mat-label>
+      <input matInput placeholder="email">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Enter Updated Password</mat-label>
+      <input matInput placeholder="password">
+    </mat-form-field>
+  </form>
+  <br>
+  <button mat-raised-button color="primary">Update Data</button>
+</div>
+
+<!-- Delete student (delete) -->
+<div class="column" *ngIf="deletestudentclicked">
+  <form class="example-form" #userForm="ngForm" (ngSubmit)="deleteData(userForm.value)">
+    <mat-form-field class="example-full-width">
+      <mat-label>Enter Id</mat-label>
+      <input matInput placeholder="Id" ngModel name="id">
+    </mat-form-field>   
+    <br>
+    <button mat-raised-button color="primary">Delete Data</button>
+  </form>
+</div>
