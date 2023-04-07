@@ -29,7 +29,6 @@
 <!-- Display Student (get,put,delete) -->
 <div class="center">
   <button mat-raised-button color="primary" (click)="getData()">Display Data</button>
-
 </div>
 <ng-container *ngIf="displayData">
   <div class="center"  *ngFor="let user of getJsonValue?.users">
