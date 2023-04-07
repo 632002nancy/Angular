@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -7,16 +7,16 @@ import { HttpClient } from '@angular/common/http'
 export class UsersDataService {
 
   constructor(private http:HttpClient) { }
-  url='http://localhost:3000';
   getUsers(){
-    return this.http.get(this.url)
+    return this.http.get('http://localhost:3000');
   }
 
-  postUsers(data:any){
-    return this.http.post(this.url,data);
+  postUsers(data:string){
+    return this.http.post('http://localhost:3000',data);
   }
 
-  deleteUsers(data:any){
-    return this.http.delete(this.url+data);
+  deleteUsers(data:string){
+    return this.http.delete('http://localhost:3000/'+data);
   }
+ 
 }
