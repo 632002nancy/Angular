@@ -3,7 +3,7 @@
 
 <!-- Add student (post) -->
 <div class="center">
-  <form class="example-form" #userForm="ngForm">
+  <form class="example-form" #userForm="ngForm" (ngSubmit)="postData(userForm.value)">
     <mat-form-field class="example-full-width">
       <mat-label>Enter Name</mat-label>
       <input matInput placeholder="Name" ngModel name="name">
@@ -21,7 +21,7 @@
       <input matInput placeholder="password" ngModel name="password">
     </mat-form-field>
     <br>
-    <button mat-raised-button color="primary" (click)="postData(userForm.value)">Submit Data</button>
+    <button mat-raised-button color="primary"> {{editMode? 'Update Data' : 'Submit Data'}}</button>
   </form>
 </div>
 <br><br>
@@ -31,7 +31,7 @@
   <button mat-raised-button color="primary" (click)="getData()">Display Data</button>
 </div>
 <ng-container *ngIf="displayData">
-  <div class="center"  *ngFor="let user of getJsonValue?.users">
+  <div class="center"  *ngFor="let user of allstudent">
     Name:{{user.name}} &nbsp;
     Email:{{user.email}}  &nbsp;
     Password:{{user.password}}  &nbsp;&nbsp;
