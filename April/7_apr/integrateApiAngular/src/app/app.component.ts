@@ -37,8 +37,8 @@ export class AppComponent {
       return student;
     }))
       .subscribe((res) => {
-        console.log(res);
         this.allstudent = res;
+        console.log(this.allstudent)
       })
   }
 
@@ -76,4 +76,7 @@ export class AppComponent {
     console.log(data);
     this.userData.deleteUsers(data).subscribe((result) => {console.log(result)});
   }
+
+  displayedColumns: string[] = [ 'name', 'email', 'password'];
+  dataSource = this.allstudent;
 }
