@@ -32,15 +32,9 @@
 </div>
 
 <ng-container *ngIf="displayData">
-  <div class="center"  *ngFor="let user of allstudent, index as i">
+  <div class="center">
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-    
-      <!-- Position Column -->
-      <ng-container matColumnDef="position">
-        <th mat-header-cell *matHeaderCellDef> No. </th>
-        <td mat-cell *matCellDef="let user"> {{i}} </td>
-      </ng-container>
-    
+       
       <!-- Name Column -->
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef> Name </th>
