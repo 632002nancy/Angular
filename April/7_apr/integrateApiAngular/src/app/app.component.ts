@@ -3,7 +3,7 @@ import { UsersDataService } from './Services/users-data.service';
 import { map } from 'rxjs/operators';
 import { NgForm } from '@angular/forms';
 
-export interface student {
+export interface Student {
   name: string;
   email: string;
   password: string;
@@ -20,10 +20,13 @@ export class AppComponent {
   //we can't connect angular directly to database so we use api to get the data
 
   displayData: boolean = false
-  allstudent: student[] = [];
+  allstudent: Student[] = [];
   editMode:boolean=false;
   editStudentId:string='';
   @ViewChild('userForm') form: NgForm;
+
+  displayedColumns = [ 'name', 'email','updateStudent','deleteStudent'];
+  dataSource:Student[]=[];
 
   constructor(private userData: UsersDataService) { }
 
@@ -38,8 +41,10 @@ export class AppComponent {
     }))
       .subscribe((res) => {
         this.allstudent = res;
-        console.log(this.allstudent)
-      })
+        console.log(this.allstudent);
+        this.dataSource=this.allstudent;
+      });
+      
   }
 
   postData(data: { name: string, email: string, password: string }): void {   //post (create)
@@ -77,6 +82,5 @@ export class AppComponent {
     this.userData.deleteUsers(data).subscribe((result) => {console.log(result)});
   }
 
-  displayedColumns: string[] = [ 'name', 'email', 'password'];
-  dataSource = this.allstudent;
+  
 }
