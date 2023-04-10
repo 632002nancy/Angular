@@ -11,7 +11,7 @@ import { increment, decrement, reset } from 'src/app/counter.actions';
 export class MyCounterComponent {
   count$: Observable<number>;
  
-  constructor(private store: Store<{ count: number }>) {  
+  constructor(private store: Store<{ count: number }>) {   // select operator gets the chunk of data you need and then it converts it into an Observable object
     this.count$ = store.select('count');   //connecting the count$ stream to the store's count state
   }
  
