@@ -50,12 +50,14 @@ export class AppComponent {
     if(!this.editMode){      //when editMode is false (update button not clicked)
       this.userData.postUsers(data).subscribe((result) => {   //returns an observable so need to subscrie
         console.log(result);
+        this.getData();
       });
     }
     else{      //when update button clicked
       this.userData.putUsers(this.editStudentId,data)
       .subscribe((result)=>{
         console.log(result);
+        this.getData();
       })
     } 
   }
@@ -79,5 +81,6 @@ export class AppComponent {
   deleteData(data: string): void { //delete (delete)
     console.log(data);
     this.userData.deleteUsers(data).subscribe((result) => {console.log(result)});
+    this.getData();
   }
 }
