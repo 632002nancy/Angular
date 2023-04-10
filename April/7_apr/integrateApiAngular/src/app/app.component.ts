@@ -44,7 +44,6 @@ export class AppComponent {
         console.log(this.allstudent);
         this.dataSource=this.allstudent;
       });
-      
   }
 
   postData(data: { name: string, email: string, password: string }): void {   //post (create)
@@ -81,6 +80,4 @@ export class AppComponent {
     console.log(data);
     this.userData.deleteUsers(data).subscribe((result) => {console.log(result)});
   }
-
-  
 }
