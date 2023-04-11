@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Store, select} from '@ngrx/store';
+import * as UserActions from 'src/app/user.actions'
+import * as fromUser from 'src/app/user.selectors'
+
 export interface IUser{
   name:string;
   age:number;
@@ -9,6 +13,19 @@ export interface IUser{
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'ngRxApplication';
+
+  users:IUser[]=[];
+
+  constructor(private store:Store){}  //store is an observable
+
+  ngOnInit(): void {
+    this.store.dispatch(UserActions.loadUsers());  //action called(dispatch)
+
+    this.store.pipe(select(fromUser.getUsers)).subscribe(users=>{
+      console.log(users)
+      this.users=users
+    });
+  }
 }
