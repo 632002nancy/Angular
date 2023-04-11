@@ -1,7 +1,9 @@
 import { createAction, props } from '@ngrx/store';
 import { IUser } from './app.component';
+
+//The createAction function returns a function, that when called returns an object in the shape of the Action interface
 export const loadUsers = createAction(
-  '[User] Load Users'
+  '[User] Load Users'  //category of the action is captured within the square brackets [].
 );
 
 export const loadUsersSuccess = createAction(

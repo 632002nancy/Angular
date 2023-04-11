@@ -4,6 +4,7 @@ import { IUser } from './app.component';
 
 export const userFeatureKey = 'usersState';
 
+//An interface or type that defines the shape of the state
 export interface State {   //creating state which holds data user oftype IUser and error of type string
   users:IUser[],
   error:string
@@ -18,13 +19,14 @@ export const initialState: State = {
   error:''
 };
 
+//reducer function that handles the actions
 export const reducer = createReducer(
   initialState,
   on(UserActions.loadUsers,state=>({
-    ...state
+    ...state     // state transitions are not modifying the original state, but are returning a new state object using the spread operator
   })),
   on(UserActions.loadUsersSuccess,state=>({
-    ...state,
+    ...state,    //The spread syntax copies the properties from the current state into the object, creating a new reference,  guaranteeing that the old reference was discarded when a state change occurred
     users:
     [  
       {name:"Yash",age:22,gender:"male"},
@@ -39,4 +41,3 @@ export const reducer = createReducer(
     error:'Error in LoadUser'
   }))
 );
-
