@@ -10,7 +10,7 @@ export interface State {   //creating state which holds data user oftype IUser a
 }
 
 export const initialState: State = {
-   //defining the initial value for state data
+   //defining the initial value for state data in store
   users:
   [
     {name:"nancy",age:21,gender:"female"}
