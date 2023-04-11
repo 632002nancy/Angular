@@ -12,6 +12,7 @@ export class AppComponent implements OnInit{
   title = 'pipes';
   students:Student[]=[];
   totalMarks:number=0;
+  filterText:string=''
 
   constructor(private studentService:StudentService){}
 

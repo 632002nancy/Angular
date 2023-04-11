@@ -1,18 +1,23 @@
 <h1 style="text-align: center;">Pipes</h1>
 <div>
+    <input type="text" placeholder="search by gender" [(ngModel)]="filterText">
+    
     <table>
         <tr>
             <th>Name</th>
             <th>Course</th>
             <th>Marks</th>
             <th>Percentage</th>
+            <th>Gender</th>
         </tr>
 
-        <tr *ngFor="let std of students">
-            <td>{{std.name | uppercase}}</td>   //tranforming the data into uppercase
+        <tr *ngFor="let std of students | filterStudents:filterText">   <!--filtering over the student array -->
+            <td>{{std.name | uppercase}}</td>   <!--tranforming the data into uppercase-->
             <td>{{std.course}}</td>
             <td>{{std.marks}}</td>
-            <td>{{std.marks/ totalMarks | percent: '1.3-3'}}</td>
+            <!-- <td>{{std.marks/ totalMarks | percent: '1.3-3'}}</td>   passing parameters to percent to show how many number to be displayed before and after . -->
+            <td>{{std.marks | percentage: totalMarks :2}}</td>   <!--using custom pipe and passsing totalMarks as argument to the custom pipe-->
+            <td>{{std.gender}}</td>
         </tr>
     </table>
 </div>
