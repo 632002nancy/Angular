@@ -16,7 +16,6 @@ import { UserEffects } from './user.effects';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({}, {}),
     StoreModule.forRoot(reducers, { metaReducers }),
     isDevMode() ? StoreDevtoolsModule.instrument() : [],
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
