@@ -1,0 +1,12 @@
+.center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+button{
+    padding: 0.5rem;
+    background-color: blanchedalmond;
+    color: navy;
+    box-shadow: 0px 0px 5px 2px rgb(233, 162, 162);
+}

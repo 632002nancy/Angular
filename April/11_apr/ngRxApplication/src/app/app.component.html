@@ -1,12 +1,16 @@
-<h1>NgRx</h1>
+<div class="center">
+    <h1>Fetching Student data using NgRx</h1>
 
-<button (click)="getData()">Get Data</button>
-<br>
-<ng-container *ngFor="let user of allstudent?.users | keyvalue">
-   {{user.key}} --- {{user.value | json}} <br>
-</ng-container>
-<br>
-<button (click)="getError()">Get Error</button> <br>
-<ng-container *ngIf="error">
-    {{Error}}
-</ng-container>
+    <button (click)="getData()">Get Data</button>
+    <br>
+    <p> Data from the server....</p>
+    <ng-container *ngFor="let user of allstudent?.users | keyvalue">
+       {{user.key}} --- {{user.value | json}} <br>
+    </ng-container>
+    <br>
+    <button (click)="getError()">Get Error</button> <br>
+    <ng-container *ngIf="error">
+        {{Error}}
+    </ng-container>
+</div>
+
