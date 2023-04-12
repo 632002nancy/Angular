@@ -29,7 +29,7 @@ export const reducer = createReducer(
     error:'No Error Occured!!!'
   }
   )),
-  on(UserActions.loadUsersFailure,(state)=>({
+  on(UserActions.loadUsersFailure,(state, {error})=>({
     ...state,
     users:[],
     error:'Error in LoadUser'
