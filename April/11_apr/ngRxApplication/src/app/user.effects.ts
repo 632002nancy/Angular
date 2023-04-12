@@ -5,26 +5,28 @@ import { Observable, of } from 'rxjs';
 import { Action } from '@ngrx/store';
 import * as UserActions from './user.actions'
 import { UserService } from 'src/app/user.service';
-import { mergeMap, map, catchError } from 'rxjs/operators'
+import { mergeMap, map, catchError, switchMap, exhaustMap } from 'rxjs/operators'
+import { HttpClient } from '@angular/common/http';
 
 //we call services in the effect
 @Injectable()
 export class UserEffects {
 
+  constructor(private actions$: Actions, private userService: UserService, private http: HttpClient) { }  //actions$ is an observable
 
-  // constructor(private actions$: Actions, private userService :UserService) { }  //actions$ is an observable
+  loadUsers$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(UserActions.loadUsers),                    //does the work of filtering
+      exhaustMap(() => {
+        return this.userService.getUser().pipe(
+          map((Userdata) =>
+          UserActions.loadUsersSuccess({ data:
+            [ { name: "nitya", email: "nitya@email", password: "nitya123" },
+            {name:"yash",email:"yash@gmail",password:"466"}]
+           })),
+          catchError(err => of(UserActions.loadUsersFailure({ error: err })))
+        )
+      })
+    ))
 
-  // making an observable to load users 
-  // loadUsers$:Observable<Action>=this.actions$.pipe(      //type of the observable is action that comes
-  //   ofType(UserActions.loadUsers),                       //ofType works as filter
-  //   mergeMap(                                            ////mapping the response from loadUser using mergeMap  
-  //     action=>
-  //       this.userService.getUser().pipe(
-  //         map (users=>{UserActions.loadUsersSuccess({data:users})})
-  //             catchError(err=>of(UserActions.loadUsersFailure({error:err})))
-  //       )
-      
-  //   )                                                       
-  //   )     
-  
 }

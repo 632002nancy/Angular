@@ -17,26 +17,28 @@ export class AppComponent implements OnInit{
   title = 'ngRxApplication';
 
   users:IUser[]=[];
-
+  Error:string='';
+  error:boolean=false;
   constructor(private store:Store){}  //store is an observable
 
   ngOnInit(): void {
-      //action called(dispatch)
+         //action called(dispatch)
+    this.store.dispatch(UserActions.loadUsers());
+      
   }
 
   getData(){
-    this.store.dispatch(UserActions.loadUsers());
     //getting data from store
     //After a selector is invoked the first time its memoized value is stored in memory. If the selector is subsequently invoked with the same arguments it will return the memoized value
     this.store.pipe(select(fromUser.getUsers)).subscribe(users=>{   //calling selector , store is observable to do operations on observable we use pipe
-      console.log(users)
       this.users=users
     }); 
   }
 
   getError(){
+    this.error=true;
     this.store.select(fromUser.getError).subscribe(err=>{
-      console.log(err);
+        this.Error=err;
     })
   }
 
