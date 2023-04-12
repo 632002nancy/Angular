@@ -33,10 +33,10 @@ export class AppComponent implements OnInit{
     }); 
   }
 
-  getError(){
-    this.store.select(fromUser.getError).subscribe(err=>{
-      console.log(err);
-    })
-  }
+  // getError(){
+  //   this.store.select(fromUser.getError).subscribe(err=>{
+  //     console.log(err);
+  //   })
+  // }
 
 }

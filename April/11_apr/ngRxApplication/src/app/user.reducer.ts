@@ -25,7 +25,8 @@ export const reducer = createReducer(
   on(UserActions.loadUsers,state=>({
     ...state     // state transitions are not modifying the original state, but are returning a new state object using the spread operator
   })),
-  on(UserActions.loadUsersSuccess,state=>({
+  on(UserActions.loadUsersSuccess,(state, {data})=>(
+    {
     ...state,    //The spread syntax copies the properties from the current state into the object, creating a new reference,  guaranteeing that the old reference was discarded when a state change occurred
     users:
     [  

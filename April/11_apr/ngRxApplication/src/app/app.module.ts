@@ -16,10 +16,10 @@ import { UserEffects } from './user.effects';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot(reducers, { metaReducers }),  //To register the global Store within your application, use the StoreModule.forRoot(), you register root states that always need to be available to all areas of your application immediately
-    isDevMode() ? StoreDevtoolsModule.instrument() : [],
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
-    EffectsModule.forRoot([UserEffects, ])  //name of the reducer for root state of the application.
+     StoreModule.forRoot(reducers, { metaReducers }),  //To register the global Store within your application, use the StoreModule.forRoot(), you register root states that always need to be available to all areas of your application immediately
+    //  isDevMode() ? StoreDevtoolsModule.instrument() : [],
+     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+     EffectsModule.forRoot([UserEffects])  //name of the reducer for root state of the application.
   ],
   providers: [],
   bootstrap: [AppComponent]
