@@ -8,6 +8,7 @@ import { reducers, metaReducers } from './reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { UserEffects } from './user.effects';
+import { UserService } from './user.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { UserEffects } from './user.effects';
      StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
      EffectsModule.forRoot([UserEffects])  //name of the reducer for root state of the application.
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
