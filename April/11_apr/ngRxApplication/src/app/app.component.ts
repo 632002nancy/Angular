@@ -18,7 +18,9 @@ export class AppComponent implements OnInit{
   title = 'ngRxApplication';
 
   students:IUser[]=[];
-  allstudent:IUser[] = [];
+  allstudent:any;
+  error:boolean=false;
+  Error:string='';
 
   constructor(private store:Store){}  //store is an observable
 
@@ -30,24 +32,15 @@ export class AppComponent implements OnInit{
   getData(){
     //getting data from store
     //After a selector is invoked the first time its memoized value is stored in memory. If the selector is subsequently invoked with the same arguments it will return the memoized value
-    this.store.pipe(select(fromUser.getUsers))
-    .pipe(map((res) => {
-      const student:IUser[] = [];
-      for (const key in res) {   //by doing this our properties are getting stored into the array
-        student.push({...res[key]}) //spreading the properties in key to an individual rpoperty for student array
-      }
-      return student;
-    }))
-    .subscribe(students=>{   //calling selector , store is observable to do operations on observable we use pipe
-      this.allstudent = students;
-      console.log(this.allstudent);
-      this.students=students;
-    }); 
+    this.store.pipe(select(fromUser.getUsers)).subscribe(data=>{
+      this.allstudent=data;
+    })
   }
 
   getError(){
+    this.error=true;
     this.store.select(fromUser.getError).subscribe(err=>{
-      console.log(err)
+      this.Error=err;
     })
   }
 }
