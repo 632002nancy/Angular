@@ -31,7 +31,6 @@ export const reducer = createReducer(
   )),
   on(UserActions.loadUsersFailure,(state, {error})=>({
     ...state,
-    users:[],
     error:'Error in LoadUser'
   }))
 );
