@@ -26,10 +26,10 @@ export const reducer = createReducer(
     {
     ...state,    //The spread syntax copies the properties from the current state into the object, creating a new reference,  guaranteeing that the old reference was discarded when a state change occurred
     users:data, 
-    error:'No Error Occured'
+    error:'No Error Occured!!!'
   }
   )),
-  on(UserActions.loadUsersFailure,(state,err)=>({
+  on(UserActions.loadUsersFailure,(state)=>({
     ...state,
     users:[],
     error:'Error in LoadUser'

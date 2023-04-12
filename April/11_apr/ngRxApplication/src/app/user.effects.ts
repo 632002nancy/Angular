@@ -6,23 +6,20 @@ import * as UserActions from './user.actions'
 import { UserService } from 'src/app/user.service';
 import { map, catchError, exhaustMap } from 'rxjs/operators'
 import { HttpClient } from '@angular/common/http';
+import { IUser } from './app.component';
 
 //we call services in the effect
 @Injectable()
 export class UserEffects {
 
   constructor(private actions$: Actions, private userService: UserService, private http: HttpClient) { }  //actions$ is an observable
-
   loadUsers$ = createEffect(() =>
     this.actions$.pipe(
       ofType(UserActions.loadUsers),                    //does the work of filtering
       exhaustMap(() => {
         return this.userService.getUser().pipe(
           map((Userdata) =>
-          UserActions.loadUsersSuccess({ data:
-            [ { name: "nitya", email: "nitya@email", password: "nitya123" },
-            {name:"yash",email:"yash@gmail",password:"466"}]
-           })),
+          UserActions.loadUsersSuccess({ data:Userdata })),
           catchError(err => of(UserActions.loadUsersFailure({ error: err })))
         )
       })
