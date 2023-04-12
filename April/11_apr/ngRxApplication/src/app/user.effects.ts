@@ -1,11 +1,10 @@
 //effects are used to call service
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { Observable, of } from 'rxjs';
-import { Action } from '@ngrx/store';
+import { of } from 'rxjs';
 import * as UserActions from './user.actions'
 import { UserService } from 'src/app/user.service';
-import { mergeMap, map, catchError, switchMap, exhaustMap } from 'rxjs/operators'
+import { map, catchError, exhaustMap } from 'rxjs/operators'
 import { HttpClient } from '@angular/common/http';
 
 //we call services in the effect
@@ -28,5 +27,4 @@ export class UserEffects {
         )
       })
     ))
-
 }

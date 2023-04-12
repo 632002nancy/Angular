@@ -22,9 +22,8 @@ export class AppComponent implements OnInit{
   constructor(private store:Store){}  //store is an observable
 
   ngOnInit(): void {
-         //action called(dispatch)
+    //action called(dispatch)
     this.store.dispatch(UserActions.loadUsers());
-      
   }
 
   getData(){
@@ -41,5 +40,4 @@ export class AppComponent implements OnInit{
         this.Error=err;
     })
   }
-
 }
