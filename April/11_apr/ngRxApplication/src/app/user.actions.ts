@@ -7,7 +7,7 @@ export const loadUsers = createAction(
 );
 
 export const loadUsersSuccess = createAction(
-  '[User] Load Users Success',
+  '[User] Load Users Success',   // [what is changing] — what’s exactly happening
   props<{ data: IUser[] }>()
 );
 

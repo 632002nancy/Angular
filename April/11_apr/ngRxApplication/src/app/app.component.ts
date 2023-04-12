@@ -31,7 +31,7 @@ export class AppComponent implements OnInit{
   getData(){
     //getting data from store
     //After a selector is invoked the first time its memoized value is stored in memory. If the selector is subsequently invoked with the same arguments it will return the memoized value
-    this.store.pipe(select(fromUser.getUsers)).subscribe(data=>{
+    this.store.pipe(select(fromUser.getUsers)).subscribe(data=>{    //this returns an observable so we need to subscribe to it
       this.allstudent=data;     
     })
   }

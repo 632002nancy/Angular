@@ -8,10 +8,10 @@ const getUserFeatureState =createFeatureSelector<State>('usersState');
 //The createSelector can be used to select some data from the state based on several slices of the same state
 export const getUsers=createSelector(  //creating selector for user
     getUserFeatureState,
-    state=>state.users
+    (state:State)=>state.users
 )
 
 export const getError=createSelector(  //creating selector for error
     getUserFeatureState,
-    state=>state.error
+    (state:State)=>state.error
 )

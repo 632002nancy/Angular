@@ -2,7 +2,7 @@ import { createReducer, on,Action } from '@ngrx/store';
 import * as UserActions from './user.actions';
 import { IUser } from './app.component';
 
-export const userFeatureKey = 'usersState';
+export const userFeatureKey = 'usersState';    //store name
 
 //An interface or type that defines the shape of the state
 export interface State {   //creating state which holds data user oftype IUser and error of type string
@@ -19,8 +19,8 @@ export const initialState: State = {
 //reducer function that handles the actions
 export const reducer = createReducer(
   initialState,
-  on(UserActions.loadUsers,state=>({
-    ...state     // state transitions are not modifying the original state, but are returning a new state object using the spread operator
+  on(UserActions.loadUsers,(state)=>({
+    ...state,     // state transitions are not modifying the original state, but are returning a new state object using the spread operator
   })),
   on(UserActions.loadUsersSuccess,(state, {data})=>(
     {
@@ -30,7 +30,7 @@ export const reducer = createReducer(
   }
   )),
   on(UserActions.loadUsersFailure,(state, {error})=>({
-    ...state,
+    ...state,  // It simply prevents us from omitting values that haven’t been changed with this action
     error:'Error in LoadUser'
   }))
 );
