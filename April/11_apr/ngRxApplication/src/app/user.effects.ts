@@ -3,7 +3,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Observable, of } from 'rxjs';
 import { Action } from '@ngrx/store';
 import * as UserActions from './user.actions'
-import { UserService } from './user.service';
+// import { UserService } from './user.service';
 import { mergeMap, map, catchError } from 'rxjs/operators'
 
 //we call services in the effect
@@ -11,7 +11,7 @@ import { mergeMap, map, catchError } from 'rxjs/operators'
 export class UserEffects {
 
 
-  constructor(private actions$: Actions, private userService :UserService) { }  //actions$ is an observable
+  // constructor(private actions$: Actions, private userService :UserService) { }  //actions$ is an observable
 
   // making an observable to load users 
   // loadUsers$:Observable<Action>=this.actions$.pipe(      //type of the observable is action that comes

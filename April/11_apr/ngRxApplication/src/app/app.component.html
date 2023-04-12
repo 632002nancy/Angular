@@ -1,4 +1,11 @@
 <h1>NgRx</h1>
 
 <button (click)="getData()">Get Data</button>
-<!-- <button (click)="getError()">Get Error</button> -->
+<br>
+<ng-container *ngFor="let user of users">
+    {{user.name}}
+    {{user.email}}
+    {{user.password}} <br>
+</ng-container>
+<br>
+<button (click)="getError()">Get Error</button>

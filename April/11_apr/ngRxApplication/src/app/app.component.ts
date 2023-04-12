@@ -5,8 +5,8 @@ import * as fromUser from 'src/app/user.selectors'
 
 export interface IUser{
   name:string;
-  age:number;
-  gender:string
+  email:string
+  password:string
 }
 @Component({
   selector: 'app-root',
@@ -21,10 +21,11 @@ export class AppComponent implements OnInit{
   constructor(private store:Store){}  //store is an observable
 
   ngOnInit(): void {
-    this.store.dispatch(UserActions.loadUsers());  //action called(dispatch)
+      //action called(dispatch)
   }
 
   getData(){
+    this.store.dispatch(UserActions.loadUsers());
     //getting data from store
     //After a selector is invoked the first time its memoized value is stored in memory. If the selector is subsequently invoked with the same arguments it will return the memoized value
     this.store.pipe(select(fromUser.getUsers)).subscribe(users=>{   //calling selector , store is observable to do operations on observable we use pipe
@@ -33,10 +34,10 @@ export class AppComponent implements OnInit{
     }); 
   }
 
-  // getError(){
-  //   this.store.select(fromUser.getError).subscribe(err=>{
-  //     console.log(err);
-  //   })
-  // }
+  getError(){
+    this.store.select(fromUser.getError).subscribe(err=>{
+      console.log(err);
+    })
+  }
 
 }
