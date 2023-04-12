@@ -6,7 +6,6 @@ import * as UserActions from './user.actions'
 import { UserService } from 'src/app/user.service';
 import { map, catchError, exhaustMap } from 'rxjs/operators'
 import { HttpClient } from '@angular/common/http';
-import { IUser } from './app.component';
 
 //we call services in the effect
 @Injectable()

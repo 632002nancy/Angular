@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Store, select} from '@ngrx/store';
 import * as UserActions from 'src/app/user.actions'
 import * as fromUser from 'src/app/user.selectors';
-import {map} from 'rxjs/operators'
 
 export interface IUser{
   name:string;
