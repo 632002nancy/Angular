@@ -21,7 +21,9 @@ export class AppComponent implements OnInit {
   students: IUser[] = [];
   displayData: boolean = false
   allstudent: any;
-  message:string='';
+  updateButton:boolean=false;
+  updateId:number;
+  updateStudentData:IUser;
   @ViewChild('userForm') form: NgForm;
 
   constructor(private store: Store, private userData: UserService) { }  //store is an observable
@@ -31,8 +33,8 @@ export class AppComponent implements OnInit {
     this.store.dispatch(UserActions.loadUsers());
   }
 
-  getData() {
-    this.displayData = true
+  getData():void {
+    this.displayData = true;
     //getting data from store
     //After a selector is invoked the first time its memoized value is stored in memory. If the selector is subsequently invoked with the same arguments it will return the memoized value
     this.store.pipe(select(fromUser.getUsers)).subscribe(data => {
@@ -43,28 +45,55 @@ export class AppComponent implements OnInit {
 
   deleteData(id:number): void {
     this.store.dispatch(UserActions.deleteUser({id:id}));
-    this.store.select(fromUser.getMessage).subscribe(mssg => {
+    this.form.setValue({
+      name:'',
+      email:'',
+      password:''
+    })
+    setTimeout(() => {
+      this.store.dispatch(UserActions.loadUsers());
+      this.getData();
+    }, 1000);
+  }
+
+  postData(data:IUser):void {
+    console.log("inside post")
+    if(!this.updateButton){
+          this.store.dispatch(UserActions.postUser({data:data}));
+          this.form.setValue({
+            name:'',
+            email:'',
+            password:''
+          })
+        setTimeout(() => {
+          this.store.dispatch(UserActions.loadUsers());
+          this.getData();
+        }, 1000);
+     }
+     else{
+      console.log("inside put")
+      console.log(data)
+      this.store.dispatch(UserActions.putUser({id:this.updateId,data:data}));
+      this.form.setValue({
+        name:'',
+        email:'',
+        password:''
+      })
       setTimeout(() => {
-        this.message = mssg;
         this.store.dispatch(UserActions.loadUsers());
         this.getData();
       }, 1000);
+    }
+  }
+
+  updateData(id:number,data:IUser):void {
+    this.updateButton=true;
+    this.form.setValue({
+      name:data.name,
+      email:data.email,
+      password:data.password,
     })
-  }
-
-  postData(data: { name: string, email: string, password: string }) {
-    this.store.dispatch(UserActions.postUser({data:data}));
-    setTimeout(() => {
-      this.store.dispatch(UserActions.loadUsers());
-      this.getData();
-    }, 1000);
-  }
-
-  updateData(id:number,data: { name: string, email: string, password: string }) {
-    this.store.dispatch(UserActions.putUser({id:id,data:data}));
-    setTimeout(() => {
-      this.store.dispatch(UserActions.loadUsers());
-      this.getData();
-    }, 1000);
+    this.updateId=id;
+    console.log(this.updateId)
   }
 }
