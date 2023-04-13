@@ -13,11 +13,11 @@ export class UserService{
             return this.http.post<IUser>('http://localhost:3000',data);
           }
         
-          deleteUsers(data:string):Observable<IUser>{
+          deleteUsers(data:number):Observable<IUser>{
             return this.http.delete<IUser>('http://localhost:3000/'+data);
           }
         
-          putUsers(data:string,value:IUser):Observable<IUser>{  
-            return this.http.put<IUser>('http://dlocalhost:3000/'+data,value);
+          putUsers(data:number,value:IUser):Observable<IUser>{  
+            return this.http.put<IUser>('http://localhost:3000/'+data,value);
           }
 }

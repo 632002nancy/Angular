@@ -23,24 +23,26 @@ export class UserEffects {
         )
       })
     ));
+
     deleteUser$= createEffect(()=>
     this.actions$.pipe(
       ofType(UserActions.deleteUser),
-      switchMap(()=>{
-        return this.userService.deleteUsers('6433af5fa2b07df98ebf67ae').pipe(
-          map((Userdata)=>
-          UserActions.deleteUsersSuccess({data:"Deleted Successfully"})),
+      switchMap((action)=>{
+        return this.userService.deleteUsers(action.id).pipe(
+          map(()=>
+          UserActions.deleteUsersSuccess({id:action.id})),
           catchError(err=> of(UserActions.deleteUsersFailure({error:err})))
         )
       })
-    ))
+    ));
+
     postUser$= createEffect(()=>
     this.actions$.pipe(
       ofType(UserActions.postUser),
-      exhaustMap(()=>{
-        return this.userService.postUsers({name:"nancy verma",email:"nancyverma@gmail",password:"123"}).pipe(
-          map((Userdata)=>
-          UserActions.postUsersSuccess({data:Userdata})),
+      exhaustMap((action)=>{
+        return this.userService.postUsers(action.data).pipe(
+          map(()=>
+          UserActions.postUsersSuccess({data:action.data})),
           catchError(err=> of(UserActions.postUsersFailure({error:err})))
         )
       })
@@ -49,13 +51,12 @@ export class UserEffects {
     putUser$= createEffect(()=>
     this.actions$.pipe(
       ofType(UserActions.putUser),
-      exhaustMap(()=>{
-        return this.userService.putUsers("64379e27c02bdf609e9ae23a",{name:"nancy verma",email:"nancy@gmail",password:"123"}).pipe(
+      exhaustMap((action)=>{
+        return this.userService.putUsers(action.id,action.data).pipe(
           map((Userdata)=>
           UserActions.putUsersSuccess({data:Userdata})),
           catchError(err=> of(UserActions.putUsersFailure({error:err})))
         )
       })
     ));
-
 }

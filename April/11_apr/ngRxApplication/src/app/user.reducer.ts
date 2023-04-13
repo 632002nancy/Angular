@@ -9,7 +9,7 @@ export interface State {   //creating state which holds data user oftype IUser a
   users:IUser[],
   error:string,
   message:string,
-  postedUser:IUser,
+  id:number
 }
 
 export const initialState: State = {
@@ -17,7 +17,7 @@ export const initialState: State = {
   users:[],
   error:'',
   message:'',
-  postedUser:{name:'',email:'',password:''}
+  id:0
 };
 
 //reducer function that handles the actions
@@ -33,7 +33,7 @@ export const reducer = createReducer(
     error:'No Error Occured!!!'
   }
   )),
-  on(UserActions.loadUsersFailure,(state, {error})=>({
+  on(UserActions.loadUsersFailure,(state)=>({
     ...state,  // It simply prevents us from omitting values that haven’t been changed with this action
     error:'Error in LoadUser'
   })),
@@ -41,14 +41,14 @@ export const reducer = createReducer(
   on(UserActions.deleteUser,(state)=>({
     ...state,     
   })),
-  on(UserActions.deleteUsersSuccess,(state, {data})=>(
+  on(UserActions.deleteUsersSuccess,(state, {id})=>(
     {
     ...state,    
-    message:data, 
+    id:id,
     error:'No Error Occured!!!'
   }
   )),
-  on(UserActions.deleteUsersFailure,(state, {error})=>({
+  on(UserActions.deleteUsersFailure,(state)=>({
     ...state,  
     error:'Error in Deleting User'
   })),
@@ -56,14 +56,13 @@ export const reducer = createReducer(
   on(UserActions.postUser,(state)=>({
     ...state,     
   })),
-  on(UserActions.postUsersSuccess,(state, {data})=>(
+  on(UserActions.postUsersSuccess,(state,)=>(
     {
     ...state,   
-    postedUser:data, 
     error:'No Error Occured!!!'
   }
   )),
-  on(UserActions.postUsersFailure,(state, {error})=>({
+  on(UserActions.postUsersFailure,(state)=>({
     ...state, 
     error:"Error in Posting User"
   })),
@@ -71,14 +70,13 @@ export const reducer = createReducer(
   on(UserActions.putUser,(state)=>({
     ...state,     
   })),
-  on(UserActions.putUsersSuccess,(state, {data})=>(
+  on(UserActions.putUsersSuccess,(state)=>(
     {
-    ...state,  
-    postedUser:data, 
+    ...state,   
     error:'No Error Occured!!!'
   }
   )),
-  on(UserActions.putUsersFailure,(state, {error})=>({
+  on(UserActions.putUsersFailure,(state)=>({
     ...state,  
     error:"Error in Updating user"
   })),
