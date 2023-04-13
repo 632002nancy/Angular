@@ -15,3 +15,8 @@ export const getError=createSelector(  //creating selector for error
     getUserFeatureState,
     (state:State)=>state.error
 )
+export const getMessage=createSelector(
+    getUserFeatureState,
+    (state:State)=>state.message
+)
+

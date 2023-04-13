@@ -1,4 +1,4 @@
-<div class="center">
+<!-- <div class="center">
     <h1>Fetching Student data using NgRx</h1>
 
     <button (click)="getData()">Get Data</button>
@@ -8,9 +8,87 @@
        {{user.key}} --- {{user.value | json}} <br>
     </ng-container>
     <br>
-    <button (click)="getError()">Get Error</button> <br>
-    <ng-container *ngIf="error">
-        {{Error}}
-    </ng-container>
+    
+    <button type="submit" (click)="deleteData('643789801279a25a2c72aa18')">Delete Data</button>
+    <p>{{message}}</p>
+    <button type="submit" (click)="postData()">Post Data</button>
+    <br>
+    <button type="submit" (click)="putData()">Put Data</button>
+    
 </div>
+ -->
 
+
+
+
+ 
+<h1 style="text-align: center;">Intergating APIs with Angular Tutorial Using NgRx</h1>
+
+<!-- Add student (post) -->
+<div class="center">
+  <form class="example-form" #userForm="ngForm" (ngSubmit)="postData(userForm.value)">
+    <mat-form-field class="example-full-width">
+      <mat-label>Enter Name</mat-label>
+      <input matInput placeholder="Name" ngModel name="name">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Enter Email</mat-label>
+      <input matInput placeholder="email" ngModel name="email">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Enter Password</mat-label>
+      <input matInput placeholder="password" ngModel name="password">
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="primary"> {{editMode? 'Update Data' : 'Submit Data'}}</button>
+  </form>
+</div>
+<br><br>
+
+<!-- Display Student (get,put,delete) -->
+<div class="center">
+  <button mat-raised-button color="primary" (click)="getData()">Display Data</button>
+</div>
+<br>
+
+<ng-container *ngIf="displayData">
+  <div class="center">
+    <div class="example-container mat-elevation-z8">
+      <mat-table #table [dataSource]="dataSource">
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+        </ng-container>
+    
+        <!-- Weight Column -->
+        <ng-container matColumnDef="email">
+          <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="updateStudent">
+          <mat-header-cell *matHeaderCellDef> Update </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <button mat-raised-button color="primary" (click)="updateData()">Update Data</button>&nbsp;
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="deleteStudent">
+          <mat-header-cell *matHeaderCellDef> Delete </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <button mat-raised-button color="warn" (click)="deleteData()">Delete Data</button>
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    
+    </div>
+    </div>
+</ng-container>

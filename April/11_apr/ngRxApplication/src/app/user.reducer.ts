@@ -7,13 +7,17 @@ export const userFeatureKey = 'usersState';    //store name
 //An interface or type that defines the shape of the state
 export interface State {   //creating state which holds data user oftype IUser and error of type string
   users:IUser[],
-  error:string
+  error:string,
+  message:string,
+  postedUser:IUser,
 }
 
 export const initialState: State = {
    //defining the initial value for state data in store
   users:[],
-  error:''
+  error:'',
+  message:'',
+  postedUser:{name:'',email:'',password:''}
 };
 
 //reducer function that handles the actions
@@ -32,5 +36,50 @@ export const reducer = createReducer(
   on(UserActions.loadUsersFailure,(state, {error})=>({
     ...state,  // It simply prevents us from omitting values that haven’t been changed with this action
     error:'Error in LoadUser'
-  }))
+  })),
+
+  on(UserActions.deleteUser,(state)=>({
+    ...state,     
+  })),
+  on(UserActions.deleteUsersSuccess,(state, {data})=>(
+    {
+    ...state,    
+    message:data, 
+    error:'No Error Occured!!!'
+  }
+  )),
+  on(UserActions.deleteUsersFailure,(state, {error})=>({
+    ...state,  
+    error:'Error in Deleting User'
+  })),
+
+  on(UserActions.postUser,(state)=>({
+    ...state,     
+  })),
+  on(UserActions.postUsersSuccess,(state, {data})=>(
+    {
+    ...state,   
+    postedUser:data, 
+    error:'No Error Occured!!!'
+  }
+  )),
+  on(UserActions.postUsersFailure,(state, {error})=>({
+    ...state, 
+    error:"Error in Posting User"
+  })),
+
+  on(UserActions.putUser,(state)=>({
+    ...state,     
+  })),
+  on(UserActions.putUsersSuccess,(state, {data})=>(
+    {
+    ...state,  
+    postedUser:data, 
+    error:'No Error Occured!!!'
+  }
+  )),
+  on(UserActions.putUsersFailure,(state, {error})=>({
+    ...state,  
+    error:"Error in Updating user"
+  })),
 );

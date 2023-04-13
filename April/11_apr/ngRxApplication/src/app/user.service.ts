@@ -8,4 +8,16 @@ export class UserService{
         getUser():Observable<IUser[]>{
             return this.http.get<IUser[]>('http://localhost:3000');
         }
+        postUsers(data:IUser):Observable<IUser>{
+            console.log(data)
+            return this.http.post<IUser>('http://localhost:3000',data);
+          }
+        
+          deleteUsers(data:string):Observable<IUser>{
+            return this.http.delete<IUser>('http://localhost:3000/'+data);
+          }
+        
+          putUsers(data:string,value:IUser):Observable<IUser>{  
+            return this.http.put<IUser>('http://dlocalhost:3000/'+data,value);
+          }
 }

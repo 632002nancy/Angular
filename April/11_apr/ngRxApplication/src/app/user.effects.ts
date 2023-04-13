@@ -4,7 +4,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import * as UserActions from './user.actions'
 import { UserService } from 'src/app/user.service';
-import { map, catchError, exhaustMap } from 'rxjs/operators'
+import { map, catchError, exhaustMap, switchMap } from 'rxjs/operators'
 import { HttpClient } from '@angular/common/http';
 
 //we call services in the effect
@@ -22,5 +22,40 @@ export class UserEffects {
           catchError(err => of(UserActions.loadUsersFailure({ error: err })))
         )
       })
+    ));
+    deleteUser$= createEffect(()=>
+    this.actions$.pipe(
+      ofType(UserActions.deleteUser),
+      switchMap(()=>{
+        return this.userService.deleteUsers('6433af5fa2b07df98ebf67ae').pipe(
+          map((Userdata)=>
+          UserActions.deleteUsersSuccess({data:"Deleted Successfully"})),
+          catchError(err=> of(UserActions.deleteUsersFailure({error:err})))
+        )
+      })
     ))
+    postUser$= createEffect(()=>
+    this.actions$.pipe(
+      ofType(UserActions.postUser),
+      exhaustMap(()=>{
+        return this.userService.postUsers({name:"nancy verma",email:"nancyverma@gmail",password:"123"}).pipe(
+          map((Userdata)=>
+          UserActions.postUsersSuccess({data:Userdata})),
+          catchError(err=> of(UserActions.postUsersFailure({error:err})))
+        )
+      })
+    ));
+    
+    putUser$= createEffect(()=>
+    this.actions$.pipe(
+      ofType(UserActions.putUser),
+      exhaustMap(()=>{
+        return this.userService.putUsers("64379e27c02bdf609e9ae23a",{name:"nancy verma",email:"nancy@gmail",password:"123"}).pipe(
+          map((Userdata)=>
+          UserActions.putUsersSuccess({data:Userdata})),
+          catchError(err=> of(UserActions.putUsersFailure({error:err})))
+        )
+      })
+    ));
+
 }
