@@ -28,8 +28,7 @@ export class AppComponent implements OnInit {
 
   constructor(private store: Store, private userData: UserService) { }  //store is an observable
 
-  ngOnInit(): void {
-    //action called(dispatch)
+  ngOnInit(): void { //action called(dispatch)
     this.store.dispatch(UserActions.loadUsers());
   }
 
@@ -37,8 +36,7 @@ export class AppComponent implements OnInit {
     this.displayData = true;
     //getting data from store
     //After a selector is invoked the first time its memoized value is stored in memory. If the selector is subsequently invoked with the same arguments it will return the memoized value
-    this.store.pipe(select(fromUser.getUsers)).subscribe(data => {
-      // console.log(data)    //this returns an observable so we need to subscribe to it
+    this.store.pipe(select(fromUser.getUsers)).subscribe(data => {   //this returns an observable so we need to subscribe to it
       this.allstudent = data;
     })
   }
@@ -57,7 +55,6 @@ export class AppComponent implements OnInit {
   }
 
   postData(data:IUser):void {
-    console.log("inside post")
     if(!this.updateButton){
           this.store.dispatch(UserActions.postUser({data:data}));
           this.form.setValue({
@@ -71,8 +68,6 @@ export class AppComponent implements OnInit {
         }, 1000);
      }
      else{
-      console.log("inside put")
-      console.log(data)
       this.store.dispatch(UserActions.putUser({id:this.updateId,data:data}));
       this.form.setValue({
         name:'',
@@ -94,6 +89,5 @@ export class AppComponent implements OnInit {
       password:data.password,
     })
     this.updateId=id;
-    console.log(this.updateId)
   }
 }
