@@ -11,10 +11,14 @@ import { FormsModule } from '@angular/forms';
 
 //angular material
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { WelcomeComponent } from './welcome/welcome.component';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +27,9 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     UsersModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    FormsModule
+    FormsModule,
+    MatInputModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
