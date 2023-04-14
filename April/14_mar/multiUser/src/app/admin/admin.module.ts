@@ -22,7 +22,7 @@ import { RouteService } from '../Services/route.service';
     AdminRoutingModule,
     MatInputModule,
     MatButtonModule,
-    FormsModule
+    FormsModule,
   ],
   providers:[RouteService],
   exports:[AdminComponent]

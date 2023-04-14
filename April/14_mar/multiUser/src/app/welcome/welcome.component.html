@@ -1,7 +1,6 @@
-<div class="center">
-    <h1>Welcome To Multi-User App</h1>
-  </div>
-<div class="center">
+<div class="center" *ngIf="loginPage">
+    <h1> UCO Cars Service</h1>
+  
     <button mat-raised-button (click)="showAdmin()">Login as Admin</button><br><br>
     <div *ngIf="adminClicked">
         <form class="example-form" #adminForm="ngForm">
@@ -13,7 +12,7 @@
               <mat-label>Enter Login Password</mat-label>
               <input matInput ngModel name="adminPass">
             </mat-form-field> &nbsp;&nbsp;
-            <button mat-raised-button (click)="adminVerified(adminForm.value)">Login</button>
+            <button mat-raised-button color="primary" (click)="adminVerified(adminForm.value)">Login</button>
           </form>
     </div> <br><br><br>
    
@@ -28,7 +27,7 @@
               <mat-label>Enter Login Password</mat-label>
               <input matInput ngModel name="userName">
             </mat-form-field> &nbsp;&nbsp;
-            <button mat-raised-button (click)="userVerified(userForm.value)">Login</button>
+            <button mat-raised-button color="primary" (click)="userVerified(userForm.value)">Login</button>
           </form>
       </div>
 </div>

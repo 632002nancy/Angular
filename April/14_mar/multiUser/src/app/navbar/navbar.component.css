@@ -10,14 +10,30 @@
     font-size:3rem;
 }
 ul {
+    margin-top: 3rem;
     list-style: none;
     display: flex;
 }
 ul li{
-    padding-top: 4rem;
-    padding: 4rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
 }
 ul li a{
+    font-size: 1.5rem;
+    text-shadow: -1px -1px 3px black;
     color: rgb(8, 201, 8);
     text-decoration: none;
+}
+button{
+    background-color: rgb(65, 191, 65);
+    padding: 0.51rem;
+    border: 1x solid green;
+    border-radius: 10px;
+}
+button a{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-decoration: none;
+    color: green;
+    font-size: 1rem;
+    padding: 0.5rem;
 }

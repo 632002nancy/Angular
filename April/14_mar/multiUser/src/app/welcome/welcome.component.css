@@ -6,6 +6,7 @@
 }
 .center h1{
     margin-top: 4rem;
-    color: white;
+    color: rgb(234, 98, 64);
+    text-shadow: 7px 7px 7px black;
     font-size:3rem;
 }

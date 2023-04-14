@@ -1,6 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { Route, Router } from '@angular/router';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../Services/adminAuth.service';
 
 @Component({
@@ -14,6 +13,7 @@ export class WelcomeComponent {
   userClicked:boolean=false;
   loginAdmin:string="admin";
   loginAdminPass:string="1234";
+  loginPage:boolean=true;
  
    showAdmin(){
      this.adminClicked=true
@@ -24,14 +24,16 @@ export class WelcomeComponent {
  
    adminVerified(data){
      if(this.loginAdmin===data.adminName && this.loginAdminPass===data.adminPass){
+       this.loginPage=false;
       this.authService.adminLogin();
-       this.router.navigate(['navbar']);
+       this.router.navigate(['']);
       }else{
         alert('User Name or PassWord does not match, Please try again !!!');
       }
    }
    userVerified(data:string){
+    this.loginPage=false;
     this.authService.userLogin()
-     this.router.navigate(['navbar']);
+     this.router.navigate(['']);
    }
 }
