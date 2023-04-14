@@ -24,12 +24,13 @@ export class WelcomeComponent {
    adminVerified(data){
      if(this.loginAdmin===data.adminName && this.loginAdminPass===data.adminPass){
        console.log("verified");
+       this.router.navigate(['navbar']);
+      }else{
+        alert('User Name or PassWord does not match, Please try again !!!');
       }
-      this.router.navigate(['/admin']);
-     
    }
    userVerified(data:string){
      console.log(data)
-     this.router.navigate(['/users']);
+     this.router.navigate(['navbar']);
    }
 }

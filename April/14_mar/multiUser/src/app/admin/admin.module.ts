@@ -9,6 +9,7 @@ import {FormsModule} from '@angular/forms'
 //angular material 
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
+import { RouteService } from '../Services/route.service';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import {MatButtonModule} from '@angular/material/button';
     MatButtonModule,
     FormsModule
   ],
+  providers:[RouteService],
   exports:[AdminComponent]
 })
 export class AdminModule { }
