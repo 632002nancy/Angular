@@ -7,6 +7,9 @@ import { ProductsComponent } from './products/products.component';
 import { FacilitiesComponent } from './facilities/facilities.component';
 import { RouteService } from '../Services/route.service';
 
+//angular material
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,9 @@ import { RouteService } from '../Services/route.service';
   ],
   imports: [
     CommonModule,
-    UsersRoutingModule
+    UsersRoutingModule,
+    MatCardModule,
+    MatButtonModule
   ],
   providers:[RouteService],
   exports:[UsersComponent]

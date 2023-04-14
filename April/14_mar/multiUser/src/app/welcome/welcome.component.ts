@@ -22,7 +22,7 @@ export class WelcomeComponent {
      this.userClicked=true
    }
  
-   adminVerified(data){
+   adminVerified(data:{adminName:string,adminPass:string}){
      if(this.loginAdmin===data.adminName && this.loginAdminPass===data.adminPass){
        this.loginPage=false;
       this.authService.adminLogin();

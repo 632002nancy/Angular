@@ -8,7 +8,7 @@ const routes: Routes =
   [
    { path: '', component: WelcomeComponent },
    { path: 'navbar', component: NavbarComponent },
-   { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
+   { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) ,},
    { path: 'users', loadChildren: () => import('./users/users.module').then(m => m.UsersModule) }
   ];
 

@@ -24,7 +24,15 @@ ul li a{
     color: rgb(8, 201, 8);
     text-decoration: none;
 }
+ul li a:hover {
+    color: yellow;
+}
+ul button a:hover {
+    color: yellow;
+}
 button{
+    margin-top: -0.6rem;
+    margin-left: 2.8rem;
     background-color: rgb(65, 191, 65);
     padding: 0.51rem;
     border: 1x solid green;

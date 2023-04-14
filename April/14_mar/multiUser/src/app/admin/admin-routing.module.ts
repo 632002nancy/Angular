@@ -7,7 +7,7 @@ import { RouteService } from '../Services/route.service';
 
 const routes: Routes = 
 [
-  {path: '', component: AdminComponent, },
+  {path: '', component: AdminComponent},
   {path:'admin/products', component:ProductsComponent ,canActivate:[RouteService]},
   {path:'admin/customers', component:CustomersComponent,canActivate:[RouteService]},
 ];
