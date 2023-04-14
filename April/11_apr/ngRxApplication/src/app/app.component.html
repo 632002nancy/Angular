@@ -23,6 +23,7 @@
     <br><br>
     <!--------------------------Get Data-------------------------->
     <button mat-raised-button color="primary" (click)="getData()">Read Data</button><br>
+    <br>
     <ng-container *ngFor="let user of allstudent?.users">
       NAME- {{user.name}} <br>
       EMAIL- {{user.email}} <br>
@@ -33,12 +34,9 @@
       <!-----------------------------Update Data--------------->
       <button mat-raised-button color="primary"
         (click)="updateData(user._id,{name:user.name,email:user.email,password:user.password})">Update</button>
-
-      <br>
+      <br><br>
     </ng-container><br>
   </form><br>
-
-
 </div>
 
 <!-- Display Student (get,put,delete) -->
@@ -48,7 +46,6 @@
 <!-- <ng-container *ngFor="let student of student$ | async">
   {{student}}
 </ng-container> -->
-<br>
 
 <!-- <ng-container *ngIf="displayData">
   <div class="center">

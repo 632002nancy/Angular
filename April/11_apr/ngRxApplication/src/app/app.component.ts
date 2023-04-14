@@ -78,6 +78,7 @@ export class AppComponent implements OnInit {
         this.store.dispatch(UserActions.loadUsers());
         this.getData();
       }, 1000);
+      this.updateButton=false;
     }
   }
 
