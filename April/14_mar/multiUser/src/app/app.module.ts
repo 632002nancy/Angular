@@ -15,6 +15,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import { RouteService } from './Services/route.service';
+import { AuthService } from './Services/adminAuth.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,8 @@ import { RouteService } from './Services/route.service';
     MatInputModule,
     MatButtonModule
   ],
-  providers: [RouteService],
+  exports:[WelcomeComponent],
+  providers: [RouteService,WelcomeComponent,AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
