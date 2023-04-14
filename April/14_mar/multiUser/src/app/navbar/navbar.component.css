@@ -1,0 +1,23 @@
+.center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.center h1{
+    margin-top: 4rem;
+    color: white;
+    font-size:3rem;
+}
+ul {
+    list-style: none;
+    display: flex;
+}
+ul li{
+    padding-top: 4rem;
+    padding: 4rem;
+}
+ul li a{
+    color: rgb(8, 201, 8);
+    text-decoration: none;
+}
