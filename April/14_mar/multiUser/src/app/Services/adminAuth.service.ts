@@ -10,25 +10,30 @@ interface User {
 export class AuthService {
     constructor(private http: HttpClient, private router: Router) { }
     loggedIn: boolean = false;
+    adminName = "admin";
+    adminPass = "1234";
 
-
-    //to get the token from the database into localstorage
-    adminLogin(data: User):void {
-        this.http.post("http://localhost:5000", data).subscribe((result: any) => {
-            localStorage.setItem("token", result.token);
-            this.router.navigate(['']);
+    adminLogin(data: User): boolean {
+        // this.http.post("http://localhost:5000", data).subscribe((result: any) => {
+        //     localStorage.setItem("token", result.token);
+        // })
+        if (this.adminName === data.name && this.adminPass === data.password) {
             this.loggedIn = true;
-        })
+            return true;
+        }
+        else {
+            return false;
+        }
     }
-    //getting the data from the database and setting the Authorisation in req header as token value
-    adminProfileLogin() {
-        let headers = new HttpHeaders()
-            .set("Authorization", `bearer ${localStorage.getItem("token")}`)
-        this.http.post("http://localhost:5000/profile", {}, { headers }).subscribe((result: any) => {
-            console.log(result)
-            return result;
-        })
-    }
+    // //getting the data from the database and setting the Authorisation in req header as token value
+    // adminProfileLogin() {
+    //     let headers = new HttpHeaders()
+    //         .set("Authorization", `bearer ${localStorage.getItem("token")}`)
+    //     this.http.post("http://localhost:5000/profile", {}, { headers }).subscribe((result: any) => {
+    //         console.log(result)
+    //         return result;
+    //     })
+    // }
 
     isAuthenticated(): boolean {
         return this.loggedIn;
