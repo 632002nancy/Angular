@@ -12,7 +12,7 @@ app.get("/", (req, res) => {
 app.post("/", (req, res) => {
   const user = {
     id: 1,
-    name: "nancy",
+    name: "admin",
     email: "nancy@gmail.com",
     password: "1234"
   }
