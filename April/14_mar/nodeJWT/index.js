@@ -15,6 +15,7 @@ app.post("/", (req, res) => {
     email: "nancy@gmail.com",
     password: "1234"
   }
+  jwt.sign
 })
 
 app.listen(5000, () => {
