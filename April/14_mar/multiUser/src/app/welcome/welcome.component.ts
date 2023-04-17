@@ -11,7 +11,6 @@ import { NgForm } from '@angular/forms';
 export class WelcomeComponent {
   constructor(private router: Router, private authService: AuthService) { }
   adminClicked: boolean = false;
-  userClicked: boolean = false;
   loginAdmin: string = "admin";
   loginAdminPass: string = "1234";
   loginPage: boolean = true;
@@ -20,22 +19,18 @@ export class WelcomeComponent {
   showAdmin(): void {
     this.adminClicked = true
   }
-  showUser(): void {
-    this.userClicked = true
+
+  ngOnInit() {
+    this.authService.adminProfileLogin();
   }
 
-  adminVerified(data: { adminName: string, adminPass: string }): void {
-    if (this.loginAdmin === data.adminName && this.loginAdminPass === data.adminPass) {
+  adminVerified(data: { name: string, password: string }): void {
+    if (data.name && data.password) {
+      this.authService.adminLogin(data);
       this.loginPage = false;
-      this.authService.adminLogin();
-      this.router.navigate(['']);
-    } else {
-      alert('User Name or PassWord does not match, Please try again !!!');
     }
-  }
-  userVerified(data: string): void {
-    this.loginPage = false;
-    this.authService.userLogin()
-    this.router.navigate(['']);
+    else {
+      alert('Provide Valid User Name or PassWord, Please try again !!!');
+    }
   }
 }

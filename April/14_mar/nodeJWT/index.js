@@ -2,6 +2,9 @@ const express = require("express");
 const jwt = require("jsonwebtoken");
 const app = express();
 const secreteKey = "secretKey";
+var cors = require('cors');
+
+app.use(cors()) ;
 
 app.get("/", (req, res) => {
   res.json({
@@ -16,7 +19,7 @@ app.post("/", (req, res) => {
     email: "nancy@gmail.com",
     password: "1234"
   }
-  jwt.sign({ user }, secreteKey, { expiresIn: '500s' }, (err, token) => {//details(here userDetails , secret key , expiration time)
+  jwt.sign({ user }, secreteKey, { expiresIn: '50000000s' }, (err, token) => {//details(here userDetails , secret key , expiration time)
     res.json({ user, token });
   })
 })
