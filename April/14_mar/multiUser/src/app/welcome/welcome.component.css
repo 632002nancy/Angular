@@ -11,3 +11,7 @@
     text-shadow: 7px 7px 7px black;
     font-size: 3rem;
 }
+
+mat-form-field {
+    margin-right: 1.5rem;
+}

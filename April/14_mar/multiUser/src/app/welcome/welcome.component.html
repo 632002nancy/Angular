@@ -3,16 +3,16 @@
 
   <button mat-raised-button (click)="showAdmin()">Login as Admin</button><br><br>
   <div *ngIf="adminClicked">
-    <form class="example-form" #adminForm="ngForm">
+    <form class="example-form" #adminForm="ngForm" (ngSubmit)="adminVerified(adminForm.value)">
       <mat-form-field class="example-full-width">
         <mat-label>Enter Login Name</mat-label>
         <input matInput ngModel name="name">
-      </mat-form-field> &nbsp;&nbsp;
+      </mat-form-field>
       <mat-form-field class="example-full-width">
         <mat-label>Enter Login Password</mat-label>
         <input matInput ngModel name="password">
-      </mat-form-field> &nbsp;&nbsp;
-      <button mat-raised-button color="primary" (click)="adminVerified(adminForm.value)">Login</button>
+      </mat-form-field>
+      <button type="submit" mat-raised-button color="primary">Login</button>
     </form>
-  </div> 
+  </div>
 </div>
