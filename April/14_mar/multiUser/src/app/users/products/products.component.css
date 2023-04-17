@@ -1,29 +1,34 @@
-img{
+img {
     width: 20rem;
     height: 20rem;
 }
+
 .center {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
-.center button{
-  padding-left: 8rem;
-  padding-right: 8rem;
+
+.center button {
+    padding-left: 8rem;
+    padding-right: 8rem;
 }
-.services{
+
+.services {
     margin: 1.5rem;
     text-align: center;
     font-size: larger;
 }
-h1{
+
+h1 {
     font-size: 2.6rem;
     color: rgb(234, 98, 64);
     text-shadow: 7px 7px 7px black;
     text-decoration: underline;
 }
-h2{
+
+h2 {
     color: rgb(234, 98, 64);
     text-shadow: 7px 7px 7px black;
     text-decoration: underline;

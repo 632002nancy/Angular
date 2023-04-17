@@ -8,12 +8,13 @@ import { UsersModule } from './users/users.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from 'src/app/navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http'
 
 //angular material
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { WelcomeComponent } from './welcome/welcome.component';
-import {MatInputModule} from '@angular/material/input';
-import {MatButtonModule} from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 import { RouteService } from './Services/route.service';
 import { AuthService } from './Services/adminAuth.service';
 @NgModule({
@@ -31,10 +32,11 @@ import { AuthService } from './Services/adminAuth.service';
     MatToolbarModule,
     FormsModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule
   ],
-  exports:[WelcomeComponent],
-  providers: [RouteService,WelcomeComponent,AuthService],
+  exports: [WelcomeComponent],
+  providers: [RouteService, WelcomeComponent, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

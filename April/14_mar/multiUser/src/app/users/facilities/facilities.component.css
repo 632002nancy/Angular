@@ -5,20 +5,23 @@
     align-items: center;
 }
 
-h1{
+h1 {
     font-size: 2rem;
     color: rgb(234, 98, 64);
     text-shadow: 7px 7px 7px black;
 }
-.para{
+
+.para {
     padding-top: 3rem;
     padding-left: 8rem;
     padding-right: 8rem;
 }
-p{
+
+p {
     color: white;
 }
-h2{
+
+h2 {
     text-shadow: 7px 7px 7px black;
     color: wheat;
 }

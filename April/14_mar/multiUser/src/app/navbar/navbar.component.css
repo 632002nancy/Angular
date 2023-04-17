@@ -1,36 +1,43 @@
-.center{
+.center {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.center h1{
+
+.center h1 {
     margin-top: 4rem;
     color: white;
-    font-size:3rem;
+    font-size: 3rem;
 }
+
 ul {
     margin-top: 3rem;
     list-style: none;
     display: flex;
 }
-ul li{
+
+ul li {
     padding-left: 3rem;
     padding-right: 3rem;
 }
-ul li a{
+
+ul li a {
     font-size: 1.5rem;
     text-shadow: -1px -1px 3px black;
     color: rgb(8, 201, 8);
     text-decoration: none;
 }
+
 ul li a:hover {
     color: yellow;
 }
+
 ul button a:hover {
     color: yellow;
 }
-button{
+
+button {
     margin-top: -0.6rem;
     margin-left: 2.8rem;
     background-color: rgb(65, 191, 65);
@@ -38,8 +45,9 @@ button{
     border: 1x solid green;
     border-radius: 10px;
 }
-button a{
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+button a {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-decoration: none;
     color: green;
     font-size: 1rem;
