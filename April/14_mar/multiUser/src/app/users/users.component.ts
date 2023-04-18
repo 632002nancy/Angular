@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../Services/adminAuth.service';
 
 @Component({
   selector: 'app-users',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent {
+  constructor(private authService: AuthService) { }
 
+  userLogOut(): void {
+    this.authService.adminLogOut()
+  }
 }

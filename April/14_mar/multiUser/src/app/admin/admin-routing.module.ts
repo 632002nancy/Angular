@@ -5,12 +5,12 @@ import { ProductsComponent } from './products/products.component';
 import { CustomersComponent } from './customers/customers.component';
 import { RouteService } from '../Services/route.service';
 
-const routes: Routes = 
-[
-  {path: '', component: AdminComponent},
-  {path:'admin/products', component:ProductsComponent ,canActivate:[RouteService]},
-  {path:'admin/customers', component:CustomersComponent,canActivate:[RouteService]},
-];
+const routes: Routes =
+  [
+    { path: '', component: AdminComponent, canActivate: [RouteService] },
+    { path: 'admin/products', component: ProductsComponent, canActivate: [RouteService] },
+    { path: 'admin/customers', component: CustomersComponent, canActivate: [RouteService] },
+  ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

@@ -6,11 +6,26 @@
     <form class="example-form" #adminForm="ngForm" (ngSubmit)="adminVerified(adminForm.value)">
       <mat-form-field class="example-full-width">
         <mat-label>Enter Login Name</mat-label>
-        <input matInput ngModel name="name">
+        <input matInput ngModel name="name" required>
       </mat-form-field>
       <mat-form-field class="example-full-width">
         <mat-label>Enter Login Password</mat-label>
-        <input matInput ngModel name="password">
+        <input matInput ngModel name="password" required>
+      </mat-form-field>
+      <button type="submit" mat-raised-button color="primary">Login</button>
+    </form>
+  </div>
+
+  <button mat-raised-button (click)="showUser()">Login as User</button><br><br>
+  <div *ngIf="userClicked">
+    <form class="example-form" #userForm="ngForm" (ngSubmit)="userVerified()">
+      <mat-form-field class="example-full-width">
+        <mat-label>Enter Login Name</mat-label>
+        <input matInput ngModel name="username" required>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Enter Login Password</mat-label>
+        <input matInput ngModel name="upassword" required>
       </mat-form-field>
       <button type="submit" mat-raised-button color="primary">Login</button>
     </form>
