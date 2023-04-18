@@ -34,3 +34,6 @@ h2 {
     text-shadow: 7px 7px 7px black;
     text-decoration: underline;
 }
+mat-card{
+    margin: 2rem;
+}
