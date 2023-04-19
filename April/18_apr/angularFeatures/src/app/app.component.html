@@ -1,5 +1,14 @@
-<!-- <div class="center">
+<div class="center">
   <h1>Angular 13 to 15 Features...</h1>
-</div> -->
-<!-- <app-user></app-user> -->
+</div>
+<!-- images will load lazily if they are not visible at the viewport hence improving the load time  -->
+<img ngSrc="assets/OIP.jpg" alt="computer" width="250" height="160" priority="high">
+<h5>Courses</h5>
+  <!-- use shift+down  -->
+<ul cdkListbox>
+  <li cdkOption="angular">Angular</li>
+  <li cdkOption="react">React</li>
+  <li cdkOption="solid">Solid</li>
+</ul>
+
 <router-outlet></router-outlet>

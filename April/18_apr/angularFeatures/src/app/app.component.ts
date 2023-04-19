@@ -1,9 +1,11 @@
+import { NgOptimizedImage } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+
 })
 export class AppComponent {
   title = 'angularFeatures';
@@ -56,4 +58,26 @@ export class AppComponent {
 //-----------version15 
 //1.Standalone API (Now, Gradated and out of Developer Preview)
 
-//2. Functional router guards are stable now.
+//2. Standalone APIs Allows the Creation of Multi-Route Application.
+// Now you can build a multi-route application using the new router standalone APIs. Also, bundlers can reduce the bundle size by around 11% by removing the unused features from the router at the build time.
+
+//3.Directive Composition API
+// It allows the developers to increase host elements with the directives and build the Angular application using the code reusability feature, which contributes to effective time management in the development process.
+
+//4.NgOptimizedImage 
+//directive helps us to improve image loading speed or performance in Angular applications by following best practices.
+
+//5.Functional Router Guards
+//Making the Router even simpler and further reducing the boilerplate, the Router now auto-unwraps default exports with lazy loading, further contributing to reducing the code.
+//canActivate:[()=> inject(service_name).function()].
+
+//6.The Router Unwraps Default Imports
+//{
+// path:"",loadComponent:()=>import('./lazy-file)
+//}
+
+//7.Better Stack Traces
+// you can trace the code efficiently and simply using the Stack Trace; this feature contributes when facing any error and helps find where this error is experienced or found using chrome dev-tool.
+
+//8.Automatic Language Service Import
+// The language service can now import the components needed or which are being used in the template 
