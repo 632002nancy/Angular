@@ -1,0 +1,24 @@
+nav {
+    background-color: rgb(253, 230, 193);
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#icons ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+li {
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#icons img {
+    width: 30px;
+    height: 25px;
+}
