@@ -18,7 +18,7 @@ export class DataService {
                 image:''
             }],
             hasMultipleValues:false,
-            image:'string'
+            image:''
       }
 
     getJsonData():Question{
