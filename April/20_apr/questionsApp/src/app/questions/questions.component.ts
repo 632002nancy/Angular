@@ -12,16 +12,17 @@ import * as UserAction from 'src/app/store/actions/question.actions'
   styleUrls: ['./questions.component.css']
 })
 export class QuestionsComponent implements OnInit {
-  data: any;
-  constructor(private dataService: DataService, private router: Router, private store: Store) {
+  data: questionmodel.Question[];
+  constructor(private dataService: DataService, private router: Router, private store: Store) { };
+  ngOnInit():void {
     this.store.dispatch(UserAction.Questions());
-  };
-  ngOnInit() {
     this.store.pipe(select(pageData.getPageData)).subscribe(data => {
+      // console.log(data)
       this.data = data;
     })
   }
-  getdata(i: number) {
-
+  getdata(i: number):void {
+      console.log(this.data[i]);
+      this.router.navigate([`question/${i+1}`]);
   }
 }

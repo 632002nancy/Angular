@@ -29,4 +29,10 @@ export class DataService {
         return data['filter'](obj=>obj.parentId==null)
       }))       
     }
+    getJsonDataChild(id:number):Observable<Question[]>{
+      return this.http.get<Question[]>('assets/data/QuestionsOptions.json')
+      .pipe(map((data)=>{
+        return data['filter'](obj=>obj.parentId==id)
+      }))       
+    }
 }

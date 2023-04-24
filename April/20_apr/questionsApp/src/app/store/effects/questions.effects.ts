@@ -19,4 +19,15 @@ export class QuestionsEffects {
       })
     )
   )
+  loadChildPage$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(UserAction.QuestionsChild),
+      exhaustMap((action) => {
+        return this.dataservice.getJsonDataChild(action.id).pipe(
+          map((load) =>
+            UserAction.QuestionsChildSuccess({ data: load }))
+        )
+      })
+    )
+  )
 }
