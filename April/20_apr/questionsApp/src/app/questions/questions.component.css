@@ -1,10 +1,10 @@
 #question-card img{
-    width: 200px;
-    height: 150px;
+    width: 150px;
+    height: 100px;
 }
 #question-card{
     box-shadow: 4px 4px 3px 4px rgb(246, 227, 195);
-    padding: 2rem;
+    padding: 3rem;
     width: 10%;
     height: 1%;
     margin: 1rem;

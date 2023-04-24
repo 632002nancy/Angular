@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable, filter, map } from 'rxjs';
 import {Question} from 'src/app/model/question.model'
 import { Options } from 'src/app/model/question.model';
 @Injectable()
@@ -20,12 +21,12 @@ export class DataService {
             hasMultipleValues:false,
             image:''
       }
+      d:any;
 
-    getJsonData():Question{
-        this.http.get('assets/data/QuestionsOptions.json').subscribe((data)=>{
-            // console.log(data);
-             this.jsonData=data
-        })
-        return this.jsonData
+    getJsonData():Observable<Question[]>{
+      return this.http.get<Question[]>('assets/data/QuestionsOptions.json')
+      .pipe(map((data)=>{
+        return data['filter'](obj=>obj.parentId==null)
+      }))       
     }
 }

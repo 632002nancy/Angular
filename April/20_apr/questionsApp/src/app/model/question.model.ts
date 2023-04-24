@@ -6,6 +6,7 @@ export interface Options{
     image?:string
 }
 export interface Question{
+    [x: string]: any
     id?:number,
     title?:string,
     parentId?:null | number,

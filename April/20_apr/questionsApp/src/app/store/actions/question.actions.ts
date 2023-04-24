@@ -1,15 +1,16 @@
 import { createAction, props } from '@ngrx/store';
+import * as questionModel from 'src/app/model/question.model';
 
-export const yQuestions = createAction(
+export const Questions = createAction(
   '[Question]  Questions'
 );
 
-export const yQuestionsSuccess = createAction(
+export const QuestionsSuccess = createAction(
   '[Question]  Questions Success',
-  props<{ data: any }>()
+  props<{ data: questionModel.Question[] }>()
 );
 
-export const yQuestionsFailure = createAction(
+export const QuestionsFailure = createAction(
   '[Question]  Questions Failure',
-  props<{ error: any }>()
+  props<{ error: string }>()
 );
