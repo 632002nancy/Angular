@@ -15,17 +15,34 @@ export class QuestionCardComponent implements OnInit {
   data: Question[];
   options: Options[];
   index: number = 0;
+  id:number;
 
   constructor(private route: ActivatedRoute, private dataService: DataService,private store: Store) { 
-    const id = (this.route.snapshot.params['id']);
-    console.log(id)
-    this.store.dispatch(UserAction.QuestionsChild(id));
+     this.id = (this.route.snapshot.params['id']);
+    this.store.dispatch(UserAction.QuestionsChild({id:this.id}));
   }
 
   ngOnInit(): void {
     this.store.pipe(select(pageData.getChildData)).subscribe(data=>{
-      console.log(data)
       this.data=data
-    })
+      this.options=this.data[this.index]?.options;
+    });
+    console.log(this.options)
+  }
+
+  next(){
+    this.index++;
+    this.options=this.data[this.index]?.options;
+    console.log(this.options)
+  }
+  previous(){
+    this.index--;
+    this.options=this.data[this.index]?.options;
+  }
+  add(item:number){
+    console.log(this.options[item].cost)
+  }
+  submit(){
+    return;
   }
 }

@@ -1,5 +1,19 @@
-
 <div class="center">
+    <p>{{index+1}}/{{data.length}}</p>
     <h3>{{data[index]?.title }}</h3>
+
+    <div class="images">
+        <ng-container *ngFor="let option of options; index as i">
+            <div class="center" (click)="add(i)">
+                <img *ngIf="option.image" src={{option?.image}} alt="logo"> <br>
+                <p>{{option.title}}</p>
+            </div>
+        </ng-container>
+    </div>
+    <div class="images">
+        <button *ngIf="index > 0" (click)="previous()">Previous</button>
+        <button *ngIf="index < (data.length-1)" (click)="next()">Next</button>
+        <button *ngIf="index == (data.length-1)" (click)="submit()">Submit</button>
+    </div>
 
 </div>

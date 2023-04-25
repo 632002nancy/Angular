@@ -40,19 +40,19 @@
                 "id": 1,
                 "title": "Android",
                 "cost": 800,
-                "image": "android.png"
+                "image": "assets/icons/id1op1.png"
             },
             {
                 "id": 2,
                 "title": "iOS",
                 "cost": 800,
-                "image": "ios.png"
+                "image": "assets/icons/id1op2.png"
             },
             {
                 "id": 3,
                 "title": "iOS and Android",
                 "cost": 1600,
-                "image": "android+ios.png"
+                "image": "assets/icons/id1op3.png"
             }
         ],
         "hasMultipleValues": false
@@ -66,25 +66,25 @@
                 "id": 18,
                 "title": "No",
                 "cost": 0,
-                "image": "no.png"
+                "image": "assets/icons/id1op3.png"
             },
             {
                 "id": 19,
                 "title": "Social",
                 "cost": 600,
-                "image": "social.png"
+                "image": "assets/icons/id1op3.png"
             },
             {
                 "id": 20,
                 "title": "Email",
                 "cost": 400,
-                "image": "email.png"
+                "image": "assets/icons/id1op3.png"
             },
             {
                 "id": 21,
                 "title": "I don't know",
                 "cost": 0,
-                "image": "idk.png"
+                "image": "assets/icons/id1op3.png"
             }
         ],
         "hasMultipleValues": false
@@ -98,19 +98,19 @@
                 "id": 27,
                 "title": "Yes",
                 "cost": 600,
-                "image": "yes.png"
+                "image": "assets/icons/id1op3.png"
             },
             {
                 "id": 28,
                 "title": "No",
                 "cost": 0,
-                "image": "no.png"
+                "image": "assets/icons/id1op3.png"
             },
             {
                 "id": 29,
                 "title": "I don't know",
                 "cost": 0,
-                "image": "idk.png"
+                "image": "assets/icons/id1op3.png"
             }
         ],
         "hasMultipleValues": false
@@ -124,25 +124,25 @@
                 "id": 37,
                 "title": "Upfront Cost",
                 "cost": 200,
-                "image": "upfront-cost.png"
+                "image": "assets/icons/id1op3.png"
             },
             {
                 "id": 38,
                 "title": "In-app Purchases",
                 "cost": 600,
-                "image": "inapp-purchases.png"
+                "image": "assets/icons/id1op3.png"
             },
             {
                 "id": 39,
                 "title": "Free",
                 "cost": 0,
-                "image": "free.png"
+                "image": "assets/icons/id1op3.png"
             },
             {
                 "id": 40,
                 "title": "I don't know",
                 "cost": 0,
-                "image": "idk.png"
+                "image": "assets/icons/id1op3.png"
             }
         ],
         "hasMultipleValues": false
@@ -156,19 +156,19 @@
                 "id": 48,
                 "title": "Yes",
                 "cost": 600,
-                "image": "yes.png"
+                "image": "assets/icons/id1op3.png"
             },
             {
                 "id": 49,
                 "title": "No",
                 "cost": 0,
-                "image": "no.png"
+                "image": "assets/icons/id1op3.png"
             },
             {
                 "id": 50,
                 "title": "I don't know",
                 "cost": 0,
-                "image": "idk.png"
+                "image": "assets/icons/id1op3.png"
             }
         ],
         "hasMultipleValues": false
@@ -182,19 +182,19 @@
                 "id": 58,
                 "title": "Yes",
                 "cost": 1000,
-                "image": "yes.png"
+                "image": "assets/icons/id1op3.png"
             },
             {
                 "id": 59,
                 "title": "No",
                 "cost": 0,
-                "image": "no.png"
+                "image": "assets/icons/id1op3.png"
             },
             {
                 "id": 60,
                 "title": "I don't know",
                 "cost": 0,
-                "image": "idk.png"
+                "image": "assets/icons/id1op3.png"
             }
         ],
         "hasMultipleValues": false
@@ -208,19 +208,19 @@
                 "id": 70,
                 "title": "Bare-bones",
                 "cost": 330,
-                "image": "barebones.png"
+                "image": "assets/icons/id1op3.png"
             },
             {
                 "id": 71,
                 "title": "Stock",
                 "cost": 800,
-                "image": "stock.png"
+                "image": "assets/icons/id1op3.png"
             },
             {
                 "id": 72,
                 "title": "Beautiful",
                 "cost": 3160,
-                "image": "beautiful.png"
+                "image": "assets/icons/id1op3.png"
             }
         ],
         "hasMultipleValues": true
@@ -234,19 +234,19 @@
                 "id": 78,
                 "title": "Yes, I need an app Icon",
                 "cost": 1030,
-                "image": "yes.png"
+                "image": "assets/icons/id1op3.png"
             },
             {
                 "id": 79,
                 "title": "No",
                 "cost": 0,
-                "image": "no.png"
+                "image": "assets/icons/id1op3.png"
             },
             {
                 "id": 80,
                 "title": "I don't know",
                 "cost": 0,
-                "image": "idk.png"
+                "image": "assets/icons/id1op3.png"
             }
         ],
         "hasMultipleValues": false
