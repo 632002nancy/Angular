@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../service/data.service';
 import { Options, Question } from '../model/question.model';
@@ -16,6 +16,8 @@ export class QuestionCardComponent implements OnInit {
   options: Options[];
   index: number = 0;
   id:number;
+  finalCost:number=0;
+  currentCost:number=0;
 
   constructor(private route: ActivatedRoute, private dataService: DataService,private store: Store) { 
      this.id = (this.route.snapshot.params['id']);
@@ -25,22 +27,22 @@ export class QuestionCardComponent implements OnInit {
   ngOnInit(): void {
     this.store.pipe(select(pageData.getChildData)).subscribe(data=>{
       this.data=data
+      console.log(data)
       this.options=this.data[this.index]?.options;
     });
-    console.log(this.options)
   }
 
   next(){
     this.index++;
     this.options=this.data[this.index]?.options;
-    console.log(this.options)
   }
   previous(){
     this.index--;
     this.options=this.data[this.index]?.options;
   }
   add(item:number){
-    console.log(this.options[item].cost)
+   this.currentCost= this.options[item].cost;
+   this.finalCost+=this.currentCost;  
   }
   submit(){
     return;
