@@ -26,8 +26,7 @@ export class QuestionCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.pipe(select(pageData.getChildData)).subscribe(data=>{
-      this.data=data
-      console.log(data)
+      this.data=data;
       this.options=this.data[this.index]?.options;
     });
   }
