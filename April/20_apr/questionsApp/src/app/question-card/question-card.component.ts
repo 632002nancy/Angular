@@ -47,7 +47,6 @@ export class QuestionCardComponent implements OnInit {
  
   }
   submit(){
-    console.log("submitted")
     this.router.navigate(['/submit'])
   }
 }
