@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../service/data.service';
 import { Options, Question } from '../model/question.model';
 import { Store, select } from '@ngrx/store';
@@ -19,7 +19,7 @@ export class QuestionCardComponent implements OnInit {
   finalCost:number=0;
   currentCost:number=0;
 
-  constructor(private route: ActivatedRoute, private dataService: DataService,private store: Store) { 
+  constructor(private route: ActivatedRoute, private dataService: DataService,private store: Store,private router:Router) { 
      this.id = (this.route.snapshot.params['id']);
     this.store.dispatch(UserAction.QuestionsChild({id:this.id}));
   }
@@ -41,10 +41,13 @@ export class QuestionCardComponent implements OnInit {
   }
   add(item:number){
    this.currentCost= this.options[item].cost;
-   this.finalCost+=this.currentCost;  
+   if(this.data[this.index].hasMultipleValues==false){
+    this.finalCost+=this.currentCost;
+   }
+ 
   }
   submit(){
     console.log("submitted")
-    return;
+    this.router.navigate(['/submit'])
   }
 }

@@ -23,6 +23,6 @@ export class QuestionsComponent implements OnInit {
   }
   getdata(i: number):void {
       console.log(this.data[i]);
-      this.router.navigate([`question/${i+1}`]);
+      this.router.navigate([`/question/${i+1}`]);
   }
 }

@@ -5,7 +5,7 @@
     
         <div class="images">
             <ng-container *ngFor="let option of options; index as i">
-                <div class="center" (click)="add(i)" #selected>
+                <div class="center" (click)="add(i)">
                     <img *ngIf="option.image" src={{option?.image}} alt={{option?.title}}> <br>
                     <p>{{option.title}}</p>
                 </div>
@@ -18,8 +18,8 @@
         </div>
     </div>
     <div class="center2">
-        <h4>Cost: {{currentCost}}</h4>
-        <h4> Final Cost: {{finalCost}}</h4>
+        <h3>Cost: ${{finalCost}}</h3>
+        <!-- <app-pricecard [cost]="finalCost"></app-pricecard>  giving cost variable the value of finalcost -->
     </div>
 </div>
 

@@ -12,13 +12,17 @@ import { QuestionsComponent } from './questions/questions.component';
 import { DataService } from './service/data.service';
 import { HttpClientModule } from '@angular/common/http';
 import { QuestionCardComponent } from './question-card/question-card.component';
+import { SubmitcomponentComponent } from './submitcomponent/submitcomponent.component';
+import { PricecardComponent } from './pricecard/pricecard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     QuestionsComponent,
-    QuestionCardComponent
+    QuestionCardComponent,
+    SubmitcomponentComponent,
+    PricecardComponent
   ],
   imports: [
     BrowserModule,
