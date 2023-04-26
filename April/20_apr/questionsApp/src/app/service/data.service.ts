@@ -21,8 +21,6 @@ export class DataService {
             hasMultipleValues:false,
             image:''
       }
-      d:any;
-
     getJsonData():Observable<Question[]>{
       return this.http.get<Question[]>('assets/data/QuestionsOptions.json')
       .pipe(map((data)=>{
