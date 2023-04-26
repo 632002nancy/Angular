@@ -1,5 +1,5 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../service/data.service';
 import { Options, Question } from '../model/question.model';
 import { Store, select } from '@ngrx/store';
@@ -45,6 +45,7 @@ export class QuestionCardComponent implements OnInit {
    this.finalCost+=this.currentCost;  
   }
   submit(){
+    console.log("submitted")
     return;
   }
 }
