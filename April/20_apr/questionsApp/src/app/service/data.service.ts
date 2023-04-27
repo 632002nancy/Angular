@@ -16,7 +16,8 @@ export class DataService {
                 id:0,
                 title:'',
                 cost:0,
-                image:''
+                image:'',
+                // selected:false
             }],
             hasMultipleValues:false,
             image:''
