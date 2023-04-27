@@ -16,7 +16,6 @@ export class QuestionCardComponent implements OnInit {
   options: Options[];
   index: number = 0;
   id:number;
-  final:number[]=[];
   finalCost:number=0;
   currentCost:number=0;
 
@@ -35,9 +34,6 @@ export class QuestionCardComponent implements OnInit {
   next(){
     this.index++;
     this.options=this.data[this.index]?.options;
-    this.finalCost+=this.currentCost;
-    this.final.push(this.currentCost);
-    this.currentCost=0;
   }
   previous(){
     this.index--;
@@ -45,14 +41,10 @@ export class QuestionCardComponent implements OnInit {
   }
   add(item:number){
    this.currentCost= this.options[item].cost;
-  //  this.options[item].selected=true;
    if(this.data[this.index].hasMultipleValues==false){
-    
-    if(this.currentCost!=this.options[item].cost){
-      this.currentCost= this.options[item].cost;
-    }
+    this.finalCost+=this.currentCost;
    }
-    
+ 
   }
   submit(){
     this.router.navigate(['/submit']);
