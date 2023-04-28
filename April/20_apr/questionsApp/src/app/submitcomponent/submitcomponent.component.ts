@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Route } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-submitcomponent',
@@ -7,8 +7,8 @@ import { ActivatedRoute, Route } from '@angular/router';
   styleUrls: ['./submitcomponent.component.css']
 })
 export class SubmitcomponentComponent {
-  finalprice:number=0;
+finalprice:number=0;
 constructor(private route:ActivatedRoute){
-  this.finalprice = (this.route.snapshot.params['cost']);
+  this.finalprice=this.route.snapshot.params['cost'];
 }
 }
