@@ -19,7 +19,9 @@ export class QuestionCardComponent implements OnInit {
   finalCost:number=0;
   currentCost:number=0;
   previousCost:number[]=[0];
+  selectedOptions:Options[];
   click:number=-1;
+  cost=0;
 
   constructor(private route: ActivatedRoute, private dataService: DataService,private store: Store,private router:Router) { 
      this.id = (this.route.snapshot.params['id']);
@@ -44,29 +46,18 @@ export class QuestionCardComponent implements OnInit {
     this.options=this.data[this.index]?.options;
   }
   add(item:number){
-    this.click++;
-   this.currentCost= this.options[item].cost;
-
-     this.previousCost.push(this.currentCost);
- 
-  //  console.log(this.previousCost)
-  //  console.log(this.data)
-   if(this.index==0){
-    console.log("inside if")
-    this.finalCost=this.currentCost
-  }
-  else{
-    console.log("inside if else previous")
-    console.log(this.previousCost)
-    var cost=0;
-    for (let i = 0; i < this.previousCost.length; i++) {
-      cost=cost+this.previousCost[i]
-      console.log(this.previousCost[i])
+      this.click++;
+    this.currentCost= this.options[item].cost;
+    this.previousCost.push(this.currentCost);
+    if(this.index==0){
+      this.finalCost=this.currentCost
     }
-    console.log(cost)
-     this.finalCost=((this.finalCost+this.currentCost)-cost);
-    //  console.log((this.finalCost+this.currentCost)-cost)
-   }
+    else{
+        for (let i = 0; i < this.previousCost.length; i++) {
+        this.cost=this.previousCost[i-1]
+      }
+      this.finalCost=((this.finalCost+this.currentCost)-this.cost);
+    }
  
   }
   submit(){
