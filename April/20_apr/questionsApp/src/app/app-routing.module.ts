@@ -7,7 +7,7 @@ import { SubmitcomponentComponent } from './submitcomponent/submitcomponent.comp
 const routes: Routes = [
   { path: '', component: QuestionsComponent },
   { path: 'question/:id', component: QuestionCardComponent },
-  { path: 'submit', component: SubmitcomponentComponent },
+  { path: 'submit/:cost', component: SubmitcomponentComponent },
 ];
 
 @NgModule({
