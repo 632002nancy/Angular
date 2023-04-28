@@ -18,6 +18,8 @@ export class QuestionCardComponent implements OnInit {
   id:number;
   finalCost:number=0;
   currentCost:number=0;
+  previousCost:number[]=[0];
+  click:number=-1;
 
   constructor(private route: ActivatedRoute, private dataService: DataService,private store: Store,private router:Router) { 
      this.id = (this.route.snapshot.params['id']);
@@ -34,15 +36,36 @@ export class QuestionCardComponent implements OnInit {
   next(){
     this.index++;
     this.options=this.data[this.index]?.options;
+    this.previousCost=[0];
+    this.click=-1;
   }
   previous(){
     this.index--;
     this.options=this.data[this.index]?.options;
   }
   add(item:number){
+    this.click++;
    this.currentCost= this.options[item].cost;
-   if(this.data[this.index].hasMultipleValues==false){
-    this.finalCost+=this.currentCost;
+
+     this.previousCost.push(this.currentCost);
+ 
+  //  console.log(this.previousCost)
+  //  console.log(this.data)
+   if(this.index==0){
+    console.log("inside if")
+    this.finalCost=this.currentCost
+  }
+  else{
+    console.log("inside if else previous")
+    console.log(this.previousCost)
+    var cost=0;
+    for (let i = 0; i < this.previousCost.length; i++) {
+      cost=cost+this.previousCost[i]
+      console.log(this.previousCost[i])
+    }
+    console.log(cost)
+     this.finalCost=((this.finalCost+this.currentCost)-cost);
+    //  console.log((this.finalCost+this.currentCost)-cost)
    }
  
   }
