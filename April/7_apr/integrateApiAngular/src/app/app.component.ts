@@ -47,7 +47,7 @@ export class AppComponent {
   }
 
   postData(data: { name: string, email: string, password: string }): void {   //post (create)
-    if(!this.editMode){      //when editMode is false (update button not clicked)
+    if(!this.editMode){      //when editMode is false (update button not clicked), !edit=true to run this block
       this.userData.postUsers(data).subscribe((result) => {   //returns an observable so need to subscrie
         console.log(result);
         this.getData();
@@ -60,6 +60,12 @@ export class AppComponent {
         this.getData();
       })
     } 
+    this.form.setValue({
+      name:"",
+      email:"",
+      password:"",
+    })
+    this.editMode=false;
   }
 
   updateData(data: string): void {   //put(update)
@@ -81,6 +87,7 @@ export class AppComponent {
   deleteData(data: string): void { //delete (delete)
     console.log(data);
     this.userData.deleteUsers(data).subscribe((result) => {console.log(result)});
+    console.log("delete");
     this.getData();
   }
 }
